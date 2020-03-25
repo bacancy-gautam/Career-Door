@@ -1,0 +1,19 @@
+  <div class='container'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Technology Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @added_technology.technology_name %></td>
+          <td><%= link_to "edit", edit_technology_path(params[:id]) %></td>
+          <td>
+            <%= link_to "delete", technology_path(params[:id]), :confirm => "are you sure?", data: { method: :delete } %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
