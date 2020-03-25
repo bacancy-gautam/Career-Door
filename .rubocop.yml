@@ -1,0 +1,22 @@
+Metrics/ClassLength:
+  Max: 120
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - 'db/**/*.rb'
+    - 'config/initializers/*.rb'
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+    - 'lib/tasks/*.rake'
+    - 'config/routes.rb'
+Metrics/MethodLength:
+  Max: 12
+  Exclude:
+    - 'db/**/*.rb'
+Metrics/AbcSize:
+  Exclude:
+    - 'db/**/*.rb'
