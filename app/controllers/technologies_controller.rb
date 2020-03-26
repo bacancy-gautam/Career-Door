@@ -3,8 +3,8 @@
 # crud operations for technology model
 class TechnologiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :initialize_object, only: %i[new]
-  before_action :display_all_technologies, only: %i[index]
+  before_action :initialize_object, only: :new
+  before_action :display_all_technologies, only: :index
   before_action :find_technology, only: %i[edit update show destroy]
   before_action :allowed_parameter, only: %i[create update]
   def create
@@ -53,8 +53,5 @@ class TechnologiesController < ApplicationController
 
   def find_technology
     @added_technology = Technology.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    flash.alert = 'Record not found'
-    redirect_to technologies_path
   end
 end
