@@ -4,6 +4,6 @@
 class AddColumnToUserResume < ActiveRecord::Migration[6.0]
   def change
     add_column :user_resumes, :resume_name, :string
-    add_column :user_resumes, :resume, :string
+    add_column :user_resumes, :file, :string
   end
 end
