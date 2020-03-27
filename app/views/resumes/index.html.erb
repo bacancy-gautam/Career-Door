@@ -14,10 +14,10 @@
       <% @resumes.each do |user_resume| %>
       <tr>
         <td><%= user_resume.resume_name %></td>
-        <td><%= link_to "Download Resume", user_resume.resume_url %></td>
-        <td><%= link_to "Edit", edit_user_resume_path(user_resume.id) %></td>
+        <td><%= link_to 'download', url_for(user_resume.file) %></td>
+        <td><%= link_to "Edit", edit_resume_path(user_resume.id) %></td>
         <td>
-          <%= link_to 'Delete', user_resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete %>
+          <%= link_to 'Delete', resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete %>
         </td>
       </tr>
       <% end %>

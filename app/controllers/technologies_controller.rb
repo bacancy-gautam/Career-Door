@@ -9,23 +9,20 @@ class TechnologiesController < ApplicationController
   before_action :allowed_parameter, only: %i[create update]
   def create
     @new_technology = Technology.new(allowed_parameter)
-    flash.alert = if @new_technology.save
-                    redirect_to technologies_path
-                    'technology saved'
-                  else
-                    render :new
-                    'technology not saved'
-                  end
+    if @new_technology.save
+      redirect_to technologies_path, notice: 'technology saved'
+    else
+      render :new, alert: 'technology not saved'
+    end
   end
 
   def update
-    flash.alert = if @added_technology.update(allowed_parameter)
-                    redirect_to technologies_path
-                    'technology updated'
-                  else
-                    render :edit
-                    'technology is not updated'
-                  end
+    if @added_technology.update(allowed_parameter)
+      redirect_to technologies_path, notice: 'technology updated'
+    else
+      render :edit
+      'technology is not updated'
+    end
   end
 
   def destroy
