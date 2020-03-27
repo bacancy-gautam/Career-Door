@@ -11,14 +11,21 @@
 
   <body>
     <center>
-      <div style="background-color: #00D363;">
-        <span class="text-center"
-          style="color: white; font-weight: bold; background-color: #00D363;"><%= notice %></span>
+      <div style="background-color: green;">
+        <span class="text-center" style="color: white; font-weight: bold; background-color: green;"><%= notice %></span>
       </div>
       <div style="background-color: red;">
         <span class="text-center" style="color: white; font-weight: bold"><%= alert %></span>
       </div>
     </center>
+
+    <% if current_user&.has_role? :user %>
+      <%= render 'home/nav' %>
+    <%elsif current_user&.has_role? :super_admin %>
+      <%= render 'super_admins/nav' %>
+    <% end %>
+
     <%= yield %>
   </body>
+
 </html>

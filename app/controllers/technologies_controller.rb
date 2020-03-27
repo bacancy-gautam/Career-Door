@@ -3,29 +3,31 @@
 # crud operations for technology model
 class TechnologiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :initialize_object, only: :new
-  before_action :display_all_technologies, only: :index
   before_action :find_technology, only: %i[edit update show destroy]
-  before_action :allowed_parameter, only: %i[create update]
+
+  def index
+    @all_technologies = Technology.all
+  end
+
+  def new
+    @new_technology = Technology.new
+  end
+
   def create
     @new_technology = Technology.new(allowed_parameter)
-    flash.alert = if @new_technology.save
-                    redirect_to technologies_path
-                    'technology saved'
-                  else
-                    render :new
-                    'technology not saved'
-                  end
+    if @new_technology.save
+      redirect_to technologies_path, notice: 'technology saved'
+    else
+      render :new, alert: 'technology not saved'
+    end
   end
 
   def update
-    flash.alert = if @added_technology.update(allowed_parameter)
-                    redirect_to technologies_path
-                    'technology updated'
-                  else
-                    render :edit
-                    'technology is not updated'
-                  end
+    if @added_technology.update(allowed_parameter)
+      redirect_to technologies_path, notice: 'technology updated'
+    else
+      render :edit, alert: 'technology not updated'
+    end
   end
 
   def destroy
@@ -38,14 +40,6 @@ class TechnologiesController < ApplicationController
   end
 
   private
-
-  def display_all_technologies
-    @all_technologies = Technology.all
-  end
-
-  def initialize_object
-    @new_technology = Technology.new
-  end
 
   def allowed_parameter
     params.require(:technology).permit(:technology_name)
