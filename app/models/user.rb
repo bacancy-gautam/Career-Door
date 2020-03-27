@@ -9,6 +9,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :interested_people, dependent: :destroy
   has_many :opening_jobs, through: :interested_people
+  has_many :companies, dependent: :destroy
+  has_many :company_reviews, dependent: :destroy         
   after_create :assign_default_role
 
   def assign_default_role
