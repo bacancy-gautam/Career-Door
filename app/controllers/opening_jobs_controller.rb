@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class OpeningJobsController < ApplicationController
-  before_action :find_job, only: %i[edit update destroy]
-  before_action :find_company, only: %i[new create edit]
+  before_action :find_job, only: %i[edit update destroy interested_people show]
+  before_action :find_company, only: %i[new create edit interested_people]
   def index
     @jobs = current_company.opening_jobs
   end
@@ -32,6 +32,55 @@ class OpeningJobsController < ApplicationController
   def destroy
     @job.destroy
     redirect_to company_opening_jobs_path
+  end
+
+  def interested_people
+    @interested_people = @job.users
+  end
+
+  def jobs_list
+    @jobs = OpeningJob.all
+  end
+
+  def apply
+    if current_user.opening_jobs.where(id: params[:id]).blank?
+      job = InterestedPerson.new(user_id: current_user.id,
+                                 opening_job_id: params[:id],
+                                 applied: true)
+      if job.save!
+        redirect_to root_path, notice: 'Applied!'
+      else
+        flash[:alert] = 'Something went wrong'
+        render 'new'
+      end
+    else
+      job = current_user.interested_people.where(opening_job_id: params[:id]).first
+      if job.applied?
+        job.update(user_id: current_user.id,
+                   opening_job_id: params[:id],
+                   applied: false)
+      else
+        job.update(user_id: current_user.id,
+                   opening_job_id: params[:id],
+                   applied: true)
+      end
+      redirect_to root_path, notice: 'Done!'
+    end
+  end
+
+  def interested
+    if current_user.opening_jobs.where(id: params[:id]).blank?
+      job = InterestedPerson.new(user_id: current_user.id,
+                                 opening_job_id: params[:id])
+      if job.save!
+        redirect_to root_path, notice: 'Interest recorded!'
+      else
+        flash[:alert] = 'Something went wrong'
+        render 'new'
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   private

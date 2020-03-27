@@ -3,7 +3,6 @@
 <% @page_title = "jobs List" %>
 
 <body style="background-color: #F5F7FA">
-  <%= link_to "Post a Job", new_company_opening_job_path , title: "Add new job" %></h6>
   <table border="1">
     <thead>
       <tr>
@@ -16,8 +15,8 @@
         <th></th>
       </tr>
     </thead>
-    <tbody id="index_jobs_list_body">
-      <%= render "index_jobs.html.erb" %>
+    <tbody id="jobs_list_body">
+      <%= render "list_jobs.html.erb" %>
     </tbody>
   </table>
 </body>
