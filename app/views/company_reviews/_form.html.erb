@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <%= form_for([@company, @company_review]) do |f| %>
+
+         <div class="field">
+            <%= f.label :review_rating %>
+            <%= f.number_field :review_rating, id: :company_review_review_rating %>
+          </div>
+           
+          <div class="field">
+            <%= f.label :company_review %>
+            <%= f.text_area :company_review, id: :company_review_company_review  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Save", class: "btn btn-primary" %>
+          </div>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
