@@ -1,4 +1,4 @@
 <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br/> 
-<%= link_to 'Edit', edit_company_registration_path %><br/> 
-Hello <%= current_company.name %>
-
+<%= link_to 'Edit', edit_company_registration_path %><br/>
+Hello <%= current_company.name %><br/>
+<%= link_to 'Jobs', company_opening_jobs_path(current_company) %><br/>
