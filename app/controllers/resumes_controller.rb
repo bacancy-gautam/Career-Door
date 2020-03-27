@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# crate delete read operations for user resumes
+# crate delete read operations for  resumes
 class ResumesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_resume, only: %i[edit update destroy]
@@ -14,7 +14,6 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @new_resume = Resume.new(allowed_parameters)
     @new_resume = current_user.resumes.build(allowed_parameters)
     if @new_resume.save
       redirect_to resumes_path, notice: 'Resume saved'
