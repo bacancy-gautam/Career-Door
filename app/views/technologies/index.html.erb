@@ -1,24 +1,24 @@
-<div class='container'>
-  <%= link_to 'add technology', new_technology_path %><br />
-  <br />
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Technology Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @all_technologies.each do |technology| %>
-    <tr>
-      <td><%= technology.technology_name %></td>
-      <td><%= link_to "edit", edit_technology_path(technology.id) %></td>
-      <td><%= link_to "show", technology_path(technology.id) %></td>
-      <td>
-        <%= link_to "delete", technology_path(technology.id), :confirm => "are you sure?", data: { method: :delete } %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+ <div class='container'>
+   <table class='table'>
+
+     <thead>
+       <tr>
+         <th>Technology Name</th>
+       </tr>
+     </thead>
+
+     <tbody>
+       <% @all_technologies.each do |technology| %>
+       <tr>
+         <td><%= technology.technology_name %></td>
+         <td><%= link_to "edit", edit_technology_path(technology.id) %></td>
+         <td><%= link_to "show", technology_path(technology.id) %></td>
+         <td>
+           <%= link_to "delete", technology_path(technology.id), :confirm => "are you sure?", data: { method: :delete } %>
+         </td>
+       </tr>
+       <% end %>
+     </tbody>
+
+   </table>
+ </div>
