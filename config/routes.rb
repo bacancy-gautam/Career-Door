@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   root to: "home#index"
-  devise_for :companies, controllers: { registrations: 'companies/registrations' }
+  devise_for :companies, controllers: { 
+    registrations: 'companies/registrations' }
   resources :companies, only: [:index]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   }
   resources :technologies
   resources :super_admins
+  resources :user_resumes
 end
