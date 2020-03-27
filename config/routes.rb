@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-    # omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :technologies
   resources :super_admins
-  resources :user_resumes
+  resources :resumes
 end
