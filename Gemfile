@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-# carrier wave gem is used to handle file uploading
-gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'hirb'
 gem 'jquery-rails'
