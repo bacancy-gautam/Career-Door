@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['company_id'], name: 'index_company_reviews_on_company_id'
     t.index ['user_id'], name: 'index_company_reviews_on_user_id'
-  end
+  ends
 
   create_table "interested_people", force: :cascade do |t|
     t.bigint "user_id"
