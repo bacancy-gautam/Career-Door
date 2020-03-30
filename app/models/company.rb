@@ -6,4 +6,5 @@ class Company < ApplicationRecord
   has_many :opening_jobs, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :subscription
 end

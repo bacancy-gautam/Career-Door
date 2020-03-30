@@ -1,23 +1,34 @@
 <style>
   div.scroll {
-    width: 90%;
-    height: 110px;
+    height: 200px;
     overflow-x: hidden;
     overflow-x: auto;
-    
+    text-align: right;
   }
 </style>
 <body>
 <%= link_to 'display all technology', technologies_path %>
 <%= link_to 'add new technology', new_technology_path %>
-<div id="msg" class="scroll" align="right">
-  <strong>Company Request</strong>
-  <% @companies.each do |company| %>
-    <div class="message">
-      <%= company.name %>
-      <%= link_to 'Approve', approve_company_super_admin_company_path(current_user, company) %>
-      <%= link_to 'Reject', reject_company_super_admin_company_path(current_user, company) %>
-    </div>
-  <% end %>
+<br/>
+<div class="col-md-12">
+  <div class="col-md-6"></div>
+  <div id="msg" class="scroll col-md-6">
+    <strong>Company Requests(Live)</strong>
+    <table class="table table-bordered table-hover">
+      <tbody id="clist">
+        <% if !@companies.blank? %>
+          <% @companies.each do |company| %>
+            <tr>
+              <td title="Company name"><%= company.name %></td>
+              <td title="Approve the company"><%= link_to 'Approve', approve_company_super_admin_company_path(current_user, company) %></td>
+              <td title="Reject the company"><%= link_to 'Reject', reject_company_super_admin_company_path(current_user, company) %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <h5 id="no_request" style="color: red">No Requests!</h5>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 </body>
