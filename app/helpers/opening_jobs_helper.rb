@@ -5,7 +5,7 @@ module OpeningJobsHelper
   
   def applied?(job)
     if !interested?(job)
-      jobb = current_user.interested_people.where(opening_job_id: job.id).first
+      jobb = current_user.interested_people.find_by(opening_job_id: job.id)
       jobb.applied?
     end
   end

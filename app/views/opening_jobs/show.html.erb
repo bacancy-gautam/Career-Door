@@ -8,7 +8,7 @@
   <%= link_to 'Interested', interested_user_opening_job_path %>
 <% end %>
 <% if applied?(@job) %>
-<%= link_to 'Apply', apply_user_opening_job_path %>
+  <%= link_to 'Apply', apply_user_opening_job_path %>
 <% else %>
-<%= link_to 'Un-apply', apply_user_opening_job_path %>
+  <%= link_to 'Un-apply', apply_user_opening_job_path %>
 <% end %>
