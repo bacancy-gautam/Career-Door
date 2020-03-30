@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['company_id'], name: 'index_company_reviews_on_company_id'
     t.index ['user_id'], name: 'index_company_reviews_on_user_id'
-  ends
+  end
 
   create_table "interested_people", force: :cascade do |t|
     t.bigint "user_id"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.index ["technology_id"], name: "index_opening_jobs_on_technology_id"
   end
 
+  create_table 'roles', force: :cascade do |t|
+    t.string 'name'
+    t.string 'resource_type'
+    t.bigint 'resource_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[name resource_type resource_id], name: 'index_roles_on_name_and_resource_type_and_resource_id'
+    t.index %w[resource_type resource_id], name: 'index_roles_on_resource_type_and_resource_id'
+  end
+
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -100,16 +110,6 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.string "file"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_resumes_on_user_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -136,7 +136,6 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-
   add_foreign_key "opening_jobs", "companies"
   add_foreign_key "opening_jobs", "technologies"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -152,5 +151,4 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
 
   add_foreign_key 'company_reviews', 'companies'
   add_foreign_key 'company_reviews', 'users'
-
 end

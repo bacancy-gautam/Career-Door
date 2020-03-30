@@ -54,10 +54,6 @@ class CompanyReviewsController < ApplicationController
     @company = Company.find(params[:company_id])
   end
 
-  def initialize_object
-    @company_review = @company.company_reviews.new
-  end
-
   def find_company_reviews
     @company_review = CompanyReview.find(params[:id])
   end
