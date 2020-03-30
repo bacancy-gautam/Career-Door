@@ -4,7 +4,6 @@
 class CompanyReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company
-  before_action :initialize_object, only: %i[new create]
   before_action :find_company_reviews, only: %i[edit show update destroy]
   before_action :allowed_parameters, only: %i[create update]
 
@@ -19,7 +18,9 @@ class CompanyReviewsController < ApplicationController
                   end
   end
 
-  def new; end
+  def new
+    @company_review = @company.company_reviews.new    
+  end
 
   def show; end
 
@@ -51,10 +52,6 @@ class CompanyReviewsController < ApplicationController
 
   def set_company
     @company = Company.find(params[:company_id])
-  end
-
-  def initialize_object
-    @company_review = @company.company_reviews.new
   end
 
   def find_company_reviews
