@@ -20,8 +20,8 @@
           <% @companies.each do |company| %>
             <tr>
               <td title="Company name"><%= company.name %></td>
-              <td title="Approve the company"><%= link_to 'Approve', approve_company_super_admin_company_path(current_user, company) %></td>
-              <td title="Reject the company"><%= link_to 'Reject', reject_company_super_admin_company_path(current_user, company) %></td>
+              <td title="Approve the company"><%= link_to 'Approve', approve_company_company_path(company) %></td>
+              <td title="Reject the company"><%= link_to 'Reject', reject_company_company_path(company) %></td>
             </tr>
           <% end %>
         <% else %>

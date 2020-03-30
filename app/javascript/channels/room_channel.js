@@ -15,8 +15,8 @@ consumer.subscriptions.create("RoomChannel", {
     console.log("Recieving:")
     console.log(data.content)
     $('#clist').append('<tr><td>' + data.content.name
-    + '</td><td><a href="/super_admins/1/companies/'+data.content.id
-    + '/approve_company">Approve</a></td><td><a href="/super_admins/1/companies/'
+    + '</td><td><a href="/super_admins/companies/'+data.content.id
+    + '/approve_company">Approve</a></td><td><a href="/super_admins/companies/'
     + data.content.id+'/reject_company">Reject</a></td></tr>')
     $('#no_request').remove()
   }

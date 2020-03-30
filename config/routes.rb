@@ -25,9 +25,11 @@ Rails.application.routes.draw do
   end 
   resources :technologies
   resources :super_admins do
-    resources :companies do
-      get 'approve_company', on: :member
-      get 'reject_company', on: :member
+    collection do
+      resources :companies do
+        get 'approve_company', on: :member
+        get 'reject_company', on: :member
+      end
     end
   end
 end
