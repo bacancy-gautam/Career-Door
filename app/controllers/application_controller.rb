@@ -2,14 +2,11 @@
 
 class ApplicationController < ActionController::Base
 rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
+ 
   def after_sign_in_path_for(_resource)
-    if current_user.has_role? :super_admin
-      super_admins_path
-    else
-      root_path
-    end
+    (current_user.has_role? :super_admin) ? super_admins_path : root_path
   end
-
+  
   protected
 
   def record_not_found(exception)

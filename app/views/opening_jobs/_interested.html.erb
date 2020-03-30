@@ -1,0 +1,15 @@
+<% # <% binding.pry %>
+<% if !@interested_people.blank? %>
+  <% @interested_people.each do |person| %>
+    <tr>
+      <td title ="Username"><%= person.username %></td>
+      <td title ="First Name"><%= person.firstname %></td>
+      <td title ="Last Name"><%= person.lastname %></td>
+      <td title ="Contact number"><%= person.contact %></td>
+      <td title ="Email Address"><%= person.email %></td>
+      <td title ="Experience in years"><%= person.years_of_experience %></td>
+    </tr>
+  <% end %>
+<% else %>
+  <span style="color: red; font-weight: bold">***Data not available</span>
+<% end %>

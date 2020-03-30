@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_065337) do
+
+ActiveRecord::Schema.define(version: 2020_03_27_091944) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_065337) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
+  
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,6 +54,29 @@ ActiveRecord::Schema.define(version: 2020_03_27_065337) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "interested_people", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "opening_job_id"
+    t.boolean "applied", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opening_job_id"], name: "index_interested_people_on_opening_job_id"
+    t.index ["user_id"], name: "index_interested_people_on_user_id"
+  end
+
+  create_table "opening_jobs", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "technology_id"
+    t.integer "experience"
+    t.string "job_role"
+    t.text "description"
+    t.decimal "cgpa", precision: 64, scale: 12
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_opening_jobs_on_company_id"
+    t.index ["technology_id"], name: "index_opening_jobs_on_technology_id"
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -105,6 +130,10 @@ ActiveRecord::Schema.define(version: 2020_03_27_065337) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+
+  add_foreign_key "opening_jobs", "companies"
+  add_foreign_key "opening_jobs", "technologies"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "resumes", "users"
+
 end
