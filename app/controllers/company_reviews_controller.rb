@@ -4,9 +4,8 @@
 class CompanyReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company
-  before_action :initialize_new_object, only: :new
-  before_action :find_company_review, only: %i[edit show update destroy]
-  before_action :company_review_params, only: %i[create update]
+  before_action :find_company_reviews, only: %i[edit show update destroy]
+  before_action :allowed_parameters, only: %i[create update]
 
   def create
     @company_review = CompanyReview.new(company_review_params)
@@ -21,7 +20,9 @@ class CompanyReviewsController < ApplicationController
                   end
   end
 
-  def new; end
+  def new
+    @company_review = @company.company_reviews.new    
+  end
 
   def update
     flah.alert =  if @company_review.update(company_review_params)
@@ -53,11 +54,7 @@ class CompanyReviewsController < ApplicationController
     @company = Company.find(params[:company_id])
   end
 
-  def initialize_new_object
-    @company_review = @company.company_reviews.new
-  end
-
-  def find_company_review
+  def find_company_reviews
     @company_review = CompanyReview.find(params[:id])
   end
 
