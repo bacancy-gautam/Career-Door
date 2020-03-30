@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   root to: 'home#index'
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       get 'interested_people', on: :member
     end
   end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -25,4 +27,5 @@ Rails.application.routes.draw do
   end 
   resources :technologies
   resources :super_admins
+  resources :resumes
 end
