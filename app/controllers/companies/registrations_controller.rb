@@ -42,17 +42,22 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name description website mobile address whichtype])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[name description website mobile
+                                               address whichtype])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name description website mobile address whichtype])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[name description website mobile
+                                               address whichtype])
   end
 
   # The path used after sign up.
   def after_sign_up_path_for(_resource)
     # super(resource)
+    ActionCable.server.broadcast 'room_channel', content: resource
     flash[:notice] = 'Account succesfully created'
     new_company_session_path
   end

@@ -1,2 +1,23 @@
+<style>
+  div.scroll {
+    width: 90%;
+    height: 110px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    
+  }
+</style>
+<body>
 <%= link_to 'display all technology', technologies_path %>
 <%= link_to 'add new technology', new_technology_path %>
+<div id="msg" class="scroll" align="right">
+  <strong>Company Request</strong>
+  <% @companies.each do |company| %>
+    <div class="message">
+      <%= company.name %>
+      <%= link_to 'Approve', approve_company_super_admin_company_path(current_user, company) %>
+      <%= link_to 'Reject', reject_company_super_admin_company_path(current_user, company) %>
+    </div>
+  <% end %>
+</div>
+</body>

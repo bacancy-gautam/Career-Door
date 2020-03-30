@@ -1,4 +1,11 @@
 <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br/> 
-<%= link_to 'Edit', edit_company_registration_path %><br/>
-Hello <%= current_company.name %><br/>
-<%= link_to 'Jobs', company_opening_jobs_path(current_company) %><br/>
+<% if company_approved? %>
+  <%= link_to 'Edit', edit_company_registration_path %><br/>
+  Hello <%= current_company.name %><br/>
+  <%= link_to 'Jobs', company_opening_jobs_path(current_company) %><br/>
+<% else %>
+  <center>
+    <h2>Your request has been successfully sent to the admin!</h2>
+    <h5 style="color: green">(Once request has been approved you can use your account)</h5>
+  </center>
+<% end %>

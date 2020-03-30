@@ -2,5 +2,7 @@
 
 # super admins controller
 class SuperAdminsController < ApplicationController
-  def index; end
+  def index
+    @companies = Company.where(approved: false)
+  end
 end
