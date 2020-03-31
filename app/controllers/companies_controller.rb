@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company_reviews = CompanyReview.where(company_id: @company.id).order('created_at DESC')
+    @company_reviews = @company.company_reviews.order('created_at DESC')
 
     @avg_review = if @company_reviews.blank?
                     0
