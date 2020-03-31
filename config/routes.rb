@@ -29,6 +29,16 @@ Rails.application.routes.draw do
   end
 
   resources :technologies
+  resources :super_admins do
+    collection do
+      resources :companies do
+        member do
+          get 'approve_company'
+          get 'reject_company'
+        end
+      end
+    end
+  end
   resources :super_admins
   resources :resumes
 end

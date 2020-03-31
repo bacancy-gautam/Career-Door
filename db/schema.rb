@@ -13,7 +13,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2020_03_27_091944) do
+ActiveRecord::Schema.define(version: 2020_03_30_124640) do
+
 
 
   # These are extensions that must be enabled in order to support this database
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.string "whichtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "approved", default: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
     t.index ['reset_password_token'], name: 'index_companies_on_reset_password_token', unique: true
@@ -103,6 +105,16 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
     t.index %w[resource_type resource_id], name: 'index_roles_on_resource_type_and_resource_id'
   end
 
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "company_id"
+    t.boolean "subscribed", default: false
+    t.date "subscription_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_subscriptions_on_company_id"
+  end
+
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -138,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
 
   add_foreign_key "opening_jobs", "companies"
   add_foreign_key "opening_jobs", "technologies"
+  add_foreign_key "subscriptions", "companies"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "resumes", "users"
 
@@ -151,4 +164,5 @@ ActiveRecord::Schema.define(version: 2020_03_27_091944) do
 
   add_foreign_key 'company_reviews', 'companies'
   add_foreign_key 'company_reviews', 'users'
+
 end
