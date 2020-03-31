@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="well">
-        <%= form_with model: @resume, url: resume_path, local: true do |f| %>
+        <%= form_with model: @resume, url: resume_path, validate: true, local: true do |f| %>
 
         <div class="form-group">
           <%= f.label :Resume_Name %>
