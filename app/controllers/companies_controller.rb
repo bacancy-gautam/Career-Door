@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy]
+  before_action :set_company, only: %i[show edit update destroy approve_company reject_company]
   before_action :authenticate_company!, only: %i[index interested_people show]
 
   def index
@@ -16,6 +16,17 @@ class CompaniesController < ApplicationController
                   else
                     @company_reviews.average(:review_rating).round(2)
                   end
+  end
+
+  def approve_company
+    if @company.update(approved: true)
+      subscription = @company.subscription.build
+      redirect_to super_admins_path, notice: 'Approved!' if subscription.save!
+    end
+  end
+
+  def reject_company
+    redirect_to super_admins_path, notice: 'Rejected!' if @company.destroy
   end
 
   private
