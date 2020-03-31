@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+# use client side validation to validates form on front end side.
+gem 'client_side_validations'
 gem 'hirb'
 gem 'jquery-rails'
 gem 'rolify'
