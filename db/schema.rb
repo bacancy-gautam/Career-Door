@@ -164,5 +164,5 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
 
   add_foreign_key 'company_reviews', 'companies'
   add_foreign_key 'company_reviews', 'users'
-
 end
+

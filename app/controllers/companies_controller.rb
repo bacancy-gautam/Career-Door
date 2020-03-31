@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
+
   before_action :authenticate_company!, only: %i[index show interested_people]
   before_action :find_company, only: %i[show approve_company reject_company]
 
