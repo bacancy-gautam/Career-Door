@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy approve_company reject_company]
-  before_action :authenticate_company!, only: %i[index interested_people show]
+  before_action :authenticate_company!, only: %i[index show interested_people]
+  before_action :find_company, only: %i[show approve_company reject_company]
 
   def index
     @companies = Company.all
@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
 
   private
 
-  def set_company
+  def find_company
     @company = Company.find(params[:id])
   end
 end
