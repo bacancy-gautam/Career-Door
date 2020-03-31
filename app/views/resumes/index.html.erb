@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-bordered table-striped">
+
+    <thead>.
+      <tr>
+        <th>Name</th>
+        <th>Download Link</th>
+        <th> Edit resume</th>
+        <th> Delete resume</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @resumes.each do |user_resume| %>
+      <tr>
+        <td><%= user_resume.resume_name %></td>
+        <td><%= link_to 'download', url_for(user_resume.file) %></td>
+        <td><%= link_to "Edit", edit_resume_path(user_resume.id) %></td>
+        <td>
+          <%= link_to 'Delete', resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+    
+  </table>
+</div>

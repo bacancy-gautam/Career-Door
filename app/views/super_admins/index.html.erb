@@ -1,26 +1,27 @@
 <body>
-<%= link_to 'display all technology', technologies_path %>
-<%= link_to 'add new technology', new_technology_path %>
-<br/>
-<div class="col-md-12">
-  <div class="col-md-6"></div>
-  <div id="msg" class="scroll col-md-6">
-    <strong>Company Requests(Live)</strong>
-    <table class="table table-bordered table-hover">
-      <tbody id="clist">
-        <% if !@companies.blank? %>
-          <% @companies.each do |company| %>
-            <tr>
-              <td title="Company name"><%= company.name %></td>
-              <td title="Approve the company"><%= link_to 'Approve', approve_company_company_path(company) %></td>
-              <td title="Reject the company"><%= link_to 'Reject', reject_company_company_path(company) %></td>
-            </tr>
+  <h2>welcome admin</h2><br/>
+  <%= link_to 'display all technology', technologies_path %>
+  <%= link_to 'add new technology', new_technology_path %>
+  <br/>
+  <div class="col-md-12">
+    <div class="col-md-6"></div>
+    <div id="msg" class="scroll col-md-6">
+      <strong>Company Requests(Live)</strong>
+      <table class="table table-bordered table-hover">
+        <tbody id="clist">
+          <% if !@companies.blank? %>
+            <% @companies.each do |company| %>
+              <tr>
+                <td title="Company name"><%= company.name %></td>
+                <td title="Approve the company"><%= link_to 'Approve', approve_company_company_path(company) %></td>
+                <td title="Reject the company"><%= link_to 'Reject', reject_company_company_path(company) %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <h5 id="no_request">No Requests!</h5>
           <% end %>
-        <% else %>
-          <h5 id="no_request">No Requests!</h5>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </body>
