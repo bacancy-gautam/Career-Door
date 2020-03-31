@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+  
+        <br>
+        <br>
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@company_reviews.length} reviews" %></em>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Company Name:</strong></td>
+                <td><%= @company.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @company.description %></td>
+              </tr>
+              <tr>
+                 <td><strong>Type:</strong></td>
+                <td><%= @company.whichtype %></td>
+              </tr>
+              <tr>
+                <td><strong>Website:</strong></td>
+                <td><%= @company.website %></td>
+              </tr>
+              <tr>
+                <td><strong>Email:</strong></td>
+                <td><%= @company.email %></td>
+              </tr>
+              <tr>
+                <td><strong>Address:</strong></td>
+                <td><%= @company.address %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <td><%= @avg_review %></td>
+              </tr>
+            </tbody>
+          </table>
+          <%= link_to "Write a Review", new_company_company_review_path(@company) %>
+        </div>
+      </div>
+      <div class="col-md-5 col-md-offset-2">  
+        <h1 class="review_title"><%= @company.name %></h1>
+        <p><%= @company.description %></p>
+
+        <% if @company_reviews.blank? %>
+          <h3>No Reviews just yet, would you like to write a review?</h3>
+          <%= link_to "Write Review", new_company_company_review_path(@company), class: "btn btn-danger" %>
+
+        <% else %>
+          <% @company_reviews.each do |company_review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%=company_review.review_rating %> ></div>
+              <p><%= company_review.company_review %></p>
+            </div>
+          <% end %>  
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+ |
+<%= link_to 'Back', companies_path %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
