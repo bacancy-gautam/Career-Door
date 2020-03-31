@@ -5,8 +5,8 @@ class CompaniesController < ApplicationController
   before_action :find_company, only: %i[approve_company reject_company]
   def approve_company
     if @company.update(approved: true)
-      subscription = @company.subscription.build
-      redirect_to super_admins_path, notice: 'Approved!' if subscription.save!
+      subscription = @company.build_subscription
+      redirect_to super_admins_path, notice: 'Approved!' if subscription = subscription.save
     end
   end
 
