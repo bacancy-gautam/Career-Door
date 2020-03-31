@@ -8,12 +8,6 @@ Rails.application.routes.draw do
     confirmations: 'companies/confirmations' }
   resources :companies, only: [:index]
 
-  root to: 'home#index'
-  devise_for :companies, controllers: {
-    registrations: 'companies/registrations',
-    sessions: 'companies/sessions'
-  }
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -21,7 +15,7 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :opening_jobs do
+    resources :opening_jobs do  
       get 'jobs_list', on: :collection
       get 'apply', on: :member
       get 'interested', on: :member
