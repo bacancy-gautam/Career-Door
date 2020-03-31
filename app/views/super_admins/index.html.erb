@@ -1,11 +1,3 @@
-<style>
-  div.scroll {
-    height: 200px;
-    overflow-x: hidden;
-    overflow-x: auto;
-    text-align: right;
-  }
-</style>
 <body>
 <%= link_to 'display all technology', technologies_path %>
 <%= link_to 'add new technology', new_technology_path %>
@@ -25,7 +17,7 @@
             </tr>
           <% end %>
         <% else %>
-          <h5 id="no_request" style="color: red">No Requests!</h5>
+          <h5 id="no_request">No Requests!</h5>
         <% end %>
       </tbody>
     </table>
