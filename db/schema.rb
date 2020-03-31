@@ -12,7 +12,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_330_130_928) do
+
+ActiveRecord::Schema.define(version: 2020_03_30_124640) do
+
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -36,37 +40,59 @@ ActiveRecord::Schema.define(version: 20_200_330_130_928) do
     t.datetime 'created_at', null: false
     t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
-
-  create_table 'companies', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.string 'name'
-    t.string 'description'
-    t.string 'website'
-    t.string 'mobile'
-    t.text 'address'
-    t.string 'whichtype'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'confirmation_token'
-    t.datetime 'confirmed_at'
-    t.datetime 'confirmation_sent_at'
-    t.string 'unconfirmed_email'
-    t.index ['confirmation_token'], name: 'index_companies_on_confirmation_token', unique: true
-    t.index ['email'], name: 'index_companies_on_email', unique: true
+  
+  create_table "companies", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "description"
+    t.string "website"
+    t.string "mobile"
+    t.text "address"
+    t.string "whichtype"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "approved", default: false
+    t.index ["email"], name: "index_companies_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
     t.index ['reset_password_token'], name: 'index_companies_on_reset_password_token', unique: true
   end
 
-  create_table 'resumes', force: :cascade do |t|
+  create_table 'company_reviews', force: :cascade do |t|
+    t.text 'company_review'
+    t.integer 'review_rating'
+    t.bigint 'user_id'
+    t.bigint 'company_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'resume_name'
-    t.string 'file'
-    t.bigint 'user_id'
-    t.index ['user_id'], name: 'index_resumes_on_user_id'
+    t.index ['company_id'], name: 'index_company_reviews_on_company_id'
+    t.index ['user_id'], name: 'index_company_reviews_on_user_id'
+  end
+
+  create_table "interested_people", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "opening_job_id"
+    t.boolean "applied", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opening_job_id"], name: "index_interested_people_on_opening_job_id"
+    t.index ["user_id"], name: "index_interested_people_on_user_id"
+  end
+
+  create_table "opening_jobs", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "technology_id"
+    t.integer "experience"
+    t.string "job_role"
+    t.text "description"
+    t.decimal "cgpa", precision: 64, scale: 12
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_opening_jobs_on_company_id"
+    t.index ["technology_id"], name: "index_opening_jobs_on_technology_id"
   end
 
   create_table 'roles', force: :cascade do |t|
@@ -79,10 +105,29 @@ ActiveRecord::Schema.define(version: 20_200_330_130_928) do
     t.index %w[resource_type resource_id], name: 'index_roles_on_resource_type_and_resource_id'
   end
 
-  create_table 'technologies', force: :cascade do |t|
-    t.string 'technology_name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "company_id"
+    t.boolean "subscribed", default: false
+    t.date "subscription_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_subscriptions_on_company_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "resume_name"
+    t.string "file"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "technologies", force: :cascade do |t|
+    t.string "technology_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table 'users', force: :cascade do |t|
@@ -99,14 +144,15 @@ ActiveRecord::Schema.define(version: 20_200_330_130_928) do
     t.string 'contact'
     t.string 'experience'
     t.integer 'years_of_experience', default: 0
-    t.string 'confirmation_token'
-    t.datetime 'confirmed_at'
-    t.datetime 'confirmation_sent_at'
-    t.string 'unconfirmed_email'
-    t.index ['confirmation_token'], name: 'index_users_on_confirmation_token', unique: true
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
+
+  add_foreign_key "opening_jobs", "companies"
+  add_foreign_key "opening_jobs", "technologies"
+  add_foreign_key "subscriptions", "companies"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "resumes", "users"
 
   create_table 'users_roles', id: false, force: :cascade do |t|
     t.bigint 'user_id'
@@ -116,6 +162,7 @@ ActiveRecord::Schema.define(version: 20_200_330_130_928) do
     t.index ['user_id'], name: 'index_users_roles_on_user_id'
   end
 
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'resumes', 'users'
+  add_foreign_key 'company_reviews', 'companies'
+  add_foreign_key 'company_reviews', 'users'
+
 end

@@ -1,0 +1,21 @@
+<% # <%= link_to "Back", admin_index_path %>
+<%= link_to "Back ", :back %>||
+
+<body style="background-color: #F5F7FA">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Job Role</th>
+        <th>Technology</th>
+        <th>Experience</th>
+        <th>CGPA</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="jobs_list_body">
+      <%= render "list_jobs.html.erb" %>
+    </tbody>
+  </table>
+</body>
