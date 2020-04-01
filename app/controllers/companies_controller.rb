@@ -1,14 +1,26 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
+
   before_action :authenticate_company!, only: %i[index interested_people]
   before_action :find_company, only: %i[approve_company reject_company]
 
   def index
+    @companies = Company.all
     diff = Time.now.utc - current_company.subscription.created_at
     @remaining_days = ((15.days.seconds - diff) / 1.day).to_i
   rescue StandardError
     @remaining_days = 0
+  end
+
+  def show
+    @company_reviews = @company.company_reviews.order('created_at DESC')
+
+    @avg_review = if @company_reviews.blank?
+                    0
+                  else
+                    @company_reviews.average(:review_rating).round(2)
+                  end
   end
 
   def approve_company
