@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :companies, only: %i[index show] do
+    resources :charges, on: :member
     resources :company_reviews
     resources :opening_jobs do
       get 'interested_people', on: :member

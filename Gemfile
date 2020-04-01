@@ -12,6 +12,8 @@ gem 'client_side_validations'
 gem 'hirb'
 gem 'jquery-rails'
 gem 'rolify'
+# Payment
+gem 'stripe'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use postgresql as the database for Active Record
@@ -32,10 +34,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rubocop', require: false
 
-# Use Active Storage variant
-gem 'bootstrap', '~>4.3.1'
-
 # gem 'image_processing', '~> 1.2'
+
+gem 'bootstrap'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
