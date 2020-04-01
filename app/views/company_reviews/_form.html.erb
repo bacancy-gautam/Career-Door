@@ -5,9 +5,8 @@
         <%= form_for([@company, @company_review]) do |f| %>
 
          <div class="field">
-            <%= f.label :review_rating %>
-            <%= f.number_field :review_rating, id: :company_review_review_rating %>
-          </div>
+            <div id="star-rating"></div>
+         </div>
            
           <div class="field">
             <%= f.label :company_review %>
@@ -16,12 +15,18 @@
 
           <div class="form-group">
             <%= f.submit "Save", class: "btn btn-primary" %>
-          </div>
-          
+          </div>  
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'company_review[review_rating]'
+  });
+</script>
 
 

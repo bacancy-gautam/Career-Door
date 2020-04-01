@@ -1,8 +1,24 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!, only: %i[index interested_people]
-  before_action :find_company, only: %i[approve_company reject_company]
+
+  before_action :authenticate_company!, only: %i[index show interested_people]
+  before_action :find_company, only: %i[show approve_company reject_company]
+
+  def index
+    @companies = Company.all
+  end
+
+  def show
+    @company_reviews = @company.company_reviews.order('created_at DESC')
+
+    @avg_review = if @company_reviews.blank?
+                    0
+                  else
+                    @company_reviews.average(:review_rating).round(2)
+                  end
+  end
+
   def approve_company
     if @company.update(approved: true)
       subscription = @company.build_subscription

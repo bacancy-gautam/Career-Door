@@ -167,3 +167,4 @@ ActiveRecord::Schema.define(version: 2020_03_30_130928) do
   add_foreign_key "resumes", "users"
   add_foreign_key "subscriptions", "companies"
 end
+
