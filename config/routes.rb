@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: "home#index"
-  devise_for :companies, controllers: { 
+  root to: 'home#index'
+  devise_for :companies, controllers: {
     registrations: 'companies/registrations',
     sessions: 'companies/sessions',
-    confirmations: 'companies/confirmations' }
+    confirmations: 'companies/confirmations'
+  }
   resources :companies, only: [:index]
 
   devise_for :users, controllers: {
@@ -15,18 +16,18 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :opening_jobs do  
+    resources :opening_jobs do
       get 'jobs_list', on: :collection
       get 'apply', on: :member
       get 'interested', on: :member
     end
-  end 
+  end
 
   resources :companies, only: %i[index show] do
     resources :company_reviews
     resources :opening_jobs do
       get 'interested_people', on: :member
-    end    
+    end
   end
 
   resources :technologies
