@@ -5,8 +5,8 @@ class AddExtraFieldsToUser < ActiveRecord::Migration[6.0]
     add_column :users, :username, :string
     add_column :users, :firstname, :string
     add_column :users, :lastname, :string
-    add_column :users, :contact, :bigint
-    add_column :users, :country, :string
-    add_column :users, :zipcode, :integer
+    add_column :users, :contact, :string
+    add_column :users, :experience, :string
+    add_column :users, :years_of_experience, :integer, default: 0
   end
 end

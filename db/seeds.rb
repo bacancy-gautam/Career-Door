@@ -6,3 +6,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+admin = User.new(
+  firstname: 'career',
+  lastname: 'door',
+  username: 'careerdooradmin',
+  email: 'careerdooradmin@gmail.com',
+  contact: '+91-123 456 7890',
+  password: 'Admin@careerdoor',
+  password_confirmation: 'Admin@careerdoor'
+)
+admin.add_role :super_admin
+admin.save

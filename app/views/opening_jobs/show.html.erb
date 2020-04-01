@@ -1,0 +1,14 @@
+<h4>Company:</h4> <%= @job.company.name %><br/>=========================<br/>
+<h4>Job Role:</h4> <%= @job.job_role %><br/>=========================<br/>
+<h4>Technology:</h4> <%= @job.technology.technology_name %><br/>=========================<br/>
+<h4>Job description:</h4> <%= @job.description %><br/>=========================<br/>
+<h4>Job Experience(years):</h4> <%= @job.experience %><br/>=========================<br/>
+<h4>CGPA:</h4> <%= @job.cgpa %><br/><br/>
+<% if interested?(@job) %>
+  <%= link_to 'Interested', interested_user_opening_job_path %>
+<% end %>
+<% if applied?(@job) %>
+  <%= link_to 'Apply', apply_user_opening_job_path %>
+<% else %>
+  <%= link_to 'Un-apply', apply_user_opening_job_path %>
+<% end %>

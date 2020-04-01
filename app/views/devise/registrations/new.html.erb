@@ -3,10 +3,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
 
   <div class="field">
     <%= f.label :firstname %><br />
@@ -19,18 +15,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode, autofocus: true %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <div class="field">
@@ -39,10 +25,24 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label :contact%><br />
+    <%= f.text_field :contact, autofocus: true %>
+  </div>
+
+  <div class="field" id="experience">
+    <%= f.radio_button :experience, 'fresher', checked: true %>
+    <%= f.label :experience_fresher, 'fresher',autofocus: true %>
+    <%= f.radio_button :experience, 'experienced' %>
+    <%= f.label :experience_experienced, 'experienced',autofocus: true %><br />
+  </div>
+
+  <div class="field" id="user_experience" style="display:none">
+    <%= f.label :jobexperience%><br />
+    <%= f.text_field :years_of_experience, value: 0,autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 

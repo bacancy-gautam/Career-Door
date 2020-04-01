@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_with model: @added_technology, url: technologies_path, validate: true, local: true do |f| %>
+
+      <div class="form-group">
+        <%= f.label :technology_name %><br />
+        <%= f.text_field :technology_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

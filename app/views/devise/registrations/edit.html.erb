@@ -23,14 +23,16 @@
     <%= f.text_field :contact, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true %>
+   <div class="field" id="experience">
+    <%= f.radio_button :experience, 'fresher', checked: true %>
+    <%= f.label :experience_fresher, 'fresher',autofocus: true %>
+    <%= f.radio_button :experience, 'experienced' %>
+    <%= f.label :experience_experienced, 'experienced',autofocus: true %><br />
   </div>
 
-  <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode, autofocus: true %>
+  <div class="field"  id="user_experience" style="display:none">
+    <%= f.label :jobexperience %><br />
+    <%= f.text_field :years_of_experience, autofocus: true %>
   </div>
 
   <div class="field">

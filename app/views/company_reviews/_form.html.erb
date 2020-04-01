@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <%= form_for([@company, @company_review]) do |f| %>
+
+         <div class="field">
+            <div id="star-rating"></div>
+         </div>
+           
+          <div class="field">
+            <%= f.label :company_review %>
+            <%= f.text_area :company_review, id: :company_review_company_review  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Save", class: "btn btn-primary" %>
+          </div>  
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'company_review[review_rating]'
+  });
+</script>
+
+
