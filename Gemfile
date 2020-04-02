@@ -11,6 +11,10 @@ gem 'devise'
 gem 'client_side_validations'
 gem 'hirb'
 gem 'jquery-rails'
+# sign in with google and github
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 gem 'rolify'
 # Payment
 gem 'stripe'
