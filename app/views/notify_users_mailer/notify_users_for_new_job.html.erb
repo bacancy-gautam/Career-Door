@@ -1,0 +1,38 @@
+<h2>hello<%=@user.username%></h2>
+There is a new job opening for you please find the details attached below.
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>.
+      <tr>
+        <th>Company Name</th>
+        <th>Job Role</th>
+        <th> Technology</th>
+        <th> Job description</th>
+        <th>Job Experience(years)</th>
+        <th>CGPA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= @job.company.name %>
+        </td>
+        <td>
+          <%= @job.job_role %>
+        </td>
+        <td>
+          <%= @job.technology.technology_name %>
+        </td>
+        <td>
+          <%= @job.description %>
+        </td>
+        <td>
+          <%= @job.experience %>
+        </td>
+        <td>
+          <%= @job.cgpa %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

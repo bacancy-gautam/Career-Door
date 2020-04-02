@@ -50,7 +50,12 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.string "whichtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.boolean "approved", default: false
+    t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
@@ -90,8 +95,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string "name"
-    t.string "resume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "resume_name"
@@ -139,8 +142,21 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.string "contact"
     t.string "experience"
     t.integer "years_of_experience", default: 0
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -150,14 +166,5 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
   add_foreign_key "opening_jobs", "technologies"
   add_foreign_key "resumes", "users"
   add_foreign_key "subscriptions", "companies"
-
-  create_table 'users_roles', id: false, force: :cascade do |t|
-    t.bigint 'user_id'
-    t.bigint 'role_id'
-    t.index ['role_id'], name: 'index_users_roles_on_role_id'
-    t.index %w[user_id role_id], name: 'index_users_roles_on_user_id_and_role_id'
-    t.index ['user_id'], name: 'index_users_roles_on_user_id'
-  end
-
 end
 
