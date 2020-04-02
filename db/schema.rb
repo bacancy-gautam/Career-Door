@@ -50,7 +50,12 @@ ActiveRecord::Schema.define(version: 2020_04_01_103652) do
     t.string "whichtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.boolean "approved", default: false
+    t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
@@ -91,8 +96,6 @@ ActiveRecord::Schema.define(version: 2020_04_01_103652) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string "name"
-    t.string "resume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "resume_name"
@@ -140,6 +143,11 @@ ActiveRecord::Schema.define(version: 2020_04_01_103652) do
     t.string "contact"
     t.string "experience"
     t.integer "years_of_experience", default: 0
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
