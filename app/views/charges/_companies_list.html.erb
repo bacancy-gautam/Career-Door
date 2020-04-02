@@ -1,0 +1,12 @@
+<% if !@subscriptions.blank? %>
+  <% @subscriptions.each do |subscription| %>
+    <tr>
+      <td title="Company details"><%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %></td>
+      <td title ="Subscribed? "><%= subscribed(subscription) %></td>
+      <td title="Days to complete trial"><%= days_left(subscription) %></td>
+      <td title ="Subscription date"><%= subscription&.subscription_date %></td>
+    </tr>
+  <% end %>
+<% else %>
+  <span style="color: red; font-weight: bold">***Data not available</span>
+<% end %>

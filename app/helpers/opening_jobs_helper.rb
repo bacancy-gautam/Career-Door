@@ -6,7 +6,11 @@ module OpeningJobsHelper
   def applied?(job)
     if !interested?(job)
       jobb = current_user.interested_people.find_by(opening_job_id: job.id)
-      jobb.applied?
+      jobb.nil? ? false : jobb.applied?
     end
+  end
+
+  def opened(job)
+    job.open ? "Close" : "Open"
   end
 end

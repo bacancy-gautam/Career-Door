@@ -24,13 +24,17 @@ Rails.application.routes.draw do
     resources :charges, on: :member
     resources :company_reviews
     resources :opening_jobs do
-      get 'interested_people', on: :member
+      member do
+        get 'interested_people'
+        get 'open_close_post'
+      end
     end
   end
 
   resources :technologies
   resources :super_admins do
     collection do
+      resources :charges, only: :index
       resources :companies do
         member do
           get 'approve_company'

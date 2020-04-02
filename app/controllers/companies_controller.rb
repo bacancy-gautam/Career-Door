@@ -3,7 +3,7 @@
 class CompaniesController < ApplicationController
 
   before_action :authenticate_company!, only: %i[index interested_people]
-  before_action :find_company, only: %i[approve_company reject_company]
+  before_action :find_company, only: %i[approve_company reject_company show]
 
   def index
     @companies = Company.all
