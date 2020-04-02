@@ -1,3 +1,5 @@
-<h2>welcome to our site</h2><br/>
-<%= link_to 'sign out', destroy_user_session_path , method: :delete %><br/>
-<%= link_to 'Available Jobs', jobs_list_user_opening_jobs_path(current_user) %>
+<div class="main-content">
+  <h2>welcome to our site</h2><br/>
+  <%= link_to 'sign out', destroy_user_session_path , method: :delete %><br/>
+  <%= link_to 'Available Jobs', jobs_list_user_opening_jobs_path(current_user) %>
+</div>

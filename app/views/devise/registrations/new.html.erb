@@ -1,59 +1,72 @@
-<h2>Sign up</h2>
+<body class="animsition">
+  <div class="page-wrapper">
+    <div class="page-content--bge8">
+      <div class="container">
+        <div class="login-wrap">
+          <div class="login-content">
+            <div class="login-logo">
+              <a href="#">
+                <h2>Sign Up</h2>
+              </a>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-group">
+                <%= f.label :firstname %><br />
+                <%= f.text_field :firstname, autofocus: true, class: "au-input au-input--full" %>
+              </div>
 
+              <div class="form-group">
+                <%= f.label :lastname %><br />
+                <%= f.text_field :lastname, autofocus: true, class: "au-input au-input--full" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autofocus: true %>
+              <div class="form-group">
+                <%= f.label :username %><br />
+                <%= f.text_field :username, autofocus: true, class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :contact%><br />
+                <%= f.text_field :contact, autofocus: true, class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group" id="experience">
+                <%= f.radio_button :experience, 'fresher', checked: true %>
+                <%= f.label :experience_fresher, 'fresher',autofocus: true %>
+                <%= f.radio_button :experience, 'experienced' %>
+                <%= f.label :experience_experienced, 'experienced',autofocus: true %><br />
+              </div>
+
+              <div class="form-group" id="user_experience" style="display:none">
+                <%= f.label :jobexperience%><br />
+                <%= f.text_field :years_of_experience, value: 0,autofocus: true, class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "au-input au-input--full" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.submit "Sign up", class: "au-btn au-btn--block au-btn--green m-b-20" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contact%><br />
-    <%= f.text_field :contact, autofocus: true %>
-  </div>
-
-  <div class="field" id="experience">
-    <%= f.radio_button :experience, 'fresher', checked: true %>
-    <%= f.label :experience_fresher, 'fresher',autofocus: true %>
-    <%= f.radio_button :experience, 'experienced' %>
-    <%= f.label :experience_experienced, 'experienced',autofocus: true %><br />
-  </div>
-
-  <div class="field" id="user_experience" style="display:none">
-    <%= f.label :jobexperience%><br />
-    <%= f.text_field :years_of_experience, value: 0,autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
