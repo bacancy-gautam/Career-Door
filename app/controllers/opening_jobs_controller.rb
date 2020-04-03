@@ -41,7 +41,7 @@ class OpeningJobsController < ApplicationController
   end
 
   def jobs_list
-    @jobs = OpeningJob.all.where(open: true)
+    @jobs = OpeningJob.open_job
   end
 
   def apply
@@ -56,7 +56,7 @@ class OpeningJobsController < ApplicationController
         render 'new'
       end
     else
-      job = current_user.interested_people.where(opening_job_id: params[:id]).first
+      job = current_user.interested_people.find_by(opening_job_id: params[:id])
       if job.applied?
         job.update(user_id: current_user.id,
                    opening_job_id: params[:id],

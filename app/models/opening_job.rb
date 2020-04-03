@@ -19,4 +19,6 @@ class OpeningJob < ApplicationRecord
       NotifyUsersMailer.notify_users_for_new_job(user, self).deliver
     end
   end
+
+  scope :open_job, -> { where(open: true) }
 end

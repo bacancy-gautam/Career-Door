@@ -4,15 +4,12 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
-    sessions: 'companies/sessions',
-    confirmations: 'companies/confirmations'
+    sessions: 'companies/sessions'
   }
-  resources :companies, only: [:index]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions',
-    confirmations: 'users/confirmations'
+    sessions: 'users/sessions'
   }
 
   resources :users do
@@ -36,16 +33,11 @@ Rails.application.routes.draw do
 
   resources :technologies
   resources :super_admins do
-    collection do
-      resources :charges, only: :index
-      resources :companies do
-        member do
-          get 'approve_company'
-          get 'reject_company'
-        end
-      end
+    get 'charges/index', on: :collection
+    member do
+      get 'companies/approve_company'
+      get 'companies/reject_company'
     end
   end
-  resources :super_admins
   resources :resumes
 end
