@@ -33,8 +33,8 @@
                   <tr>
                     <td title="Company details"><%= link_to company.name, company_path(company), style: "color:black;" %>
                     </td>
-                    <td title="Approve the company"><%= link_to 'Approve', approve_company_company_path(company) %></td>
-                    <td title="Reject the company"><%= link_to 'Reject', reject_company_company_path(company) %></td>
+                    <td title="Approve the company"><%= link_to 'Approve', companies_approve_company_super_admin_path(company) %></td>
+                    <td title="Reject the company"><%= link_to 'Reject', companies_reject_company_super_admin_path(company) %></td>
                   </tr>
                   <% end %>
                 <% else %>
