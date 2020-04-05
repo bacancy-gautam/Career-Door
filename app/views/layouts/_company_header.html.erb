@@ -3,23 +3,16 @@
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
       <div class="logo">
-        <h4>User Dashboard</h4>
+        <h4>Company Dashboard</h4>
       </div>
       <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
-              <%= link_to "Dashboard", root_path, class: "fas fa-chart-bar" %>
+              <%= link_to "Dashboard", companies_path, class: "fas fa-chart-bar" %>
             </li>
             <li class="active has-sub">
-                <%= link_to 'add resume', new_resume_path %>
-            </li>
-            <li class="active has-sub">
-                <%= link_to 'show resumes', resumes_path %>
-            </li>
-            <li class="active has-sub">
-                <%= link_to "Available Jobs", jobs_list_user_opening_jobs_path(current_user)%>
-            </li>
+              <%= link_to 'Jobs', company_opening_jobs_path(current_company) %> </li>
           </ul>
         </nav>
       </div>
@@ -33,14 +26,28 @@
         <div class="section__content section__content--p30">
           <div class="container-fluid">
             <div class="header-wrap">
+              <% if company_subscribed? or remaining_days_more_than_zero?(@remaining_days) %>
+                <% unless company_subscribed? %>
+                <div class="background-color-red font-color-white bold-font text-align-center">Your trial expires in
+                  <%= @remaining_days %> days
+                </div>
+                <%= link_to 'Pay Now', new_company_charge_path(current_company) ,class: "btn btn-outline-success" %>
+                <% end %>
+                <br />
+                <% else %>
+                <center>
+                  <h2>Your trial period Expired!</h2>
+                  <h5 style="message">(You can activate your account <a style="color: green"
+                      href="/companies/<%= current_company.id %>/charges/new">here</a>)</h5>
+                </center>
+                <% end %>
               <form class="form-header" action="" method="POST">
               </form>
               <div class="header-button">
-
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
-                    <%= link_to current_user.email, edit_user_registration_path %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "btn btn-outline-danger"%>
+                    <%= link_to current_company.email, edit_company_registration_path %>
+                    <%= link_to "Logout", destroy_company_session_path, method: :delete,class: "btn btn-outline-danger"%>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">
@@ -83,4 +90,3 @@
         </div>
       </header>
       <!-- HEADER DESKTOP-->
-      
