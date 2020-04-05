@@ -1,0 +1,2 @@
+class CompaniesRole < ApplicationRecord
+end
