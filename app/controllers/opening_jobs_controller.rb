@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class OpeningJobsController < ApplicationController
-  before_action :find_job, only: %i[edit update destroy interested_people show]
-  before_action :find_company, only: %i[new create edit interested_people]
+  before_action :find_job, only: %i[edit update destroy interested_people show
+                                    open_close_post]
+  before_action :find_company, only: %i[new create edit interested_people
+                                        open_close_post]
   def index
     @jobs = current_company.opening_jobs
   end
@@ -39,7 +41,7 @@ class OpeningJobsController < ApplicationController
   end
 
   def jobs_list
-    @jobs = OpeningJob.all
+    @jobs = OpeningJob.open_job
   end
 
   def apply
@@ -48,13 +50,13 @@ class OpeningJobsController < ApplicationController
                                  opening_job_id: params[:id],
                                  applied: true)
       if job.save!
-        redirect_to root_path, notice: 'Applied!'
+        redirect_to jobs_list_user_opening_jobs_path, notice: 'Applied!'
       else
         flash[:alert] = 'Something went wrong'
         render 'new'
       end
     else
-      job = current_user.interested_people.where(opening_job_id: params[:id]).first
+      job = current_user.interested_people.find_by(opening_job_id: params[:id])
       if job.applied?
         job.update(user_id: current_user.id,
                    opening_job_id: params[:id],
@@ -64,7 +66,7 @@ class OpeningJobsController < ApplicationController
                    opening_job_id: params[:id],
                    applied: true)
       end
-      redirect_to root_path, notice: 'Done!'
+      redirect_to jobs_list_user_opening_jobs_path, notice: 'Done!'
     end
   end
 
@@ -73,14 +75,19 @@ class OpeningJobsController < ApplicationController
       job = InterestedPerson.new(user_id: current_user.id,
                                  opening_job_id: params[:id])
       if job.save!
-        redirect_to root_path, notice: 'Interest recorded!'
+        redirect_to jobs_list_user_opening_jobs_path, notice: 'Interest recorded!'
       else
         flash[:alert] = 'Something went wrong'
         render 'new'
       end
     else
-      redirect_to root_path
+      redirect_to jobs_list_user_opening_jobs_path
     end
+  end
+
+  def open_close_post
+    @job.update(open: !@job.open)
+    redirect_to company_opening_jobs_path, notice: "Done"
   end
 
   private
