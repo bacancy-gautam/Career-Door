@@ -23,6 +23,8 @@
       <%= render 'layouts/user_header' %>
     <%elsif current_user&.has_role? :super_admin %>
       <%= render 'layouts/admin_header' %>
+    <%elsif current_company&.has_role? :company %>
+      <%= render 'layouts/company_header' %>
     <% end %>
 
     <%= yield %>
