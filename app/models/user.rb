@@ -4,7 +4,7 @@ class User < ApplicationRecord
   rolify
 
   attr_accessor :login_social
-  validates_presence_of :firstname, :lastname, :username, :contact, :experience, :password, if: :login_social
+  validates_presence_of :firstname, :lastname, :username, :contact, :experience, :password, unless: :login_social
   validates :firstname, length: { maximum: 10 }, format: { multiline: true, with: /^[a-zA-Z]+$/, message: 'only alphabetic characters are allowed.' }
   validates :lastname, length: { maximum: 10 }, format: { multiline: true, with: /^[a-zA-Z]+$/, message: 'only alphabetic characters are allowed.' }
   validates :username, length: { maximum: 8 }, format: { multiline: true, with: /\w/, message: 'should not contain any two special character together or do not start with digit' }, unless: :login_social

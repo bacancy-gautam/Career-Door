@@ -10,6 +10,8 @@ class OpeningJob < ApplicationRecord
   belongs_to :technology
   has_many :interested_people, dependent: :destroy
   has_many :users, through: :interested_people
+  
+  scope :open_job, -> { where(open: true) }
 
   after_create :notify_user
 
@@ -20,5 +22,4 @@ class OpeningJob < ApplicationRecord
     end
   end
 
-  scope :open_job, -> { where(open: true) }
 end

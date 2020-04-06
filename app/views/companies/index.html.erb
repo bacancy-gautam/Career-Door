@@ -1,23 +1,23 @@
 <% if company_approved? %>
-<div class="main-content">
-  <div class="section__content section__content--p30">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
+  <div class="main-content">
+    <div class="section__content section__content--p30">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+          </div>
         </div>
-      </div>
-      <div class="row-padding">
-        <div class="col-lg-6">
-          Hello <%= current_company.name %><br />
+        <div class="row-padding">
+          <div class="col-lg-6">
+            Hello <%= current_company.name %><br />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <% else %>
-<%= link_to 'Logout', destroy_company_session_path, method: :delete %><br />
-<center>
-  <h2>Your request has been successfully sent to the admin!</h2>
-  <h5 style="color: green">(Once request has been approved you can use your account)</h5>
-</center>
+  <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br />
+  <center>
+    <h2>Your request has been successfully sent to the admin!</h2>
+    <h5 style="color: green">(Once request has been approved you can use your account)</h5>
+  </center>
 <% end %>
