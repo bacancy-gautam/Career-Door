@@ -26,21 +26,6 @@
         <div class="section__content section__content--p30">
           <div class="container-fluid">
             <div class="header-wrap">
-              <% if company_subscribed? or remaining_days_more_than_zero?(@remaining_days) %>
-                <% unless company_subscribed? %>
-                <div class="background-color-red font-color-white bold-font text-align-center">Your trial expires in
-                  <%= @remaining_days %> days
-                </div>
-                <%= link_to 'Pay Now', new_company_charge_path(current_company) ,class: "btn btn-outline-success" %>
-                <% end %>
-                <br />
-                <% else %>
-                <center>
-                  <h2>Your trial period Expired!</h2>
-                  <h5 style="message">(You can activate your account <a style="color: green"
-                      href="/companies/<%= current_company.id %>/charges/new">here</a>)</h5>
-                </center>
-                <% end %>
               <form class="form-header" action="" method="POST">
               </form>
               <div class="header-button">
