@@ -1,8 +1,8 @@
 <%= link_to "Back", :back %>
-<div class="popular_catagory_area" style="padding-top: 5px;">
-  <div class="container">
-    <div class="row h-100 justify-content-center align-items-top">
-      <div class="col-10 col-md-8 col-lg-6">
+<<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
         <%= form_with(model: [@company, @job], validate: true, local: true) do |f| %>
           <% if @job.errors.any? %>
             <h2><%= pluralize(@job.errors.count, "error") %> prohibited this user from being saved:</h2>
