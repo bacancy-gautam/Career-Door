@@ -20,9 +20,11 @@
     </center>
 
     <% if current_user&.has_role? :user %>
-      <%= render 'home/nav' %>
+      <%= render 'layouts/user_header' %>
     <%elsif current_user&.has_role? :super_admin %>
-      <%= render 'super_admins/nav' %>
+      <%= render 'layouts/admin_header' %>
+    <%elsif current_company&.has_role? :company %>
+      <%= render 'layouts/company_header' %>
     <% end %>
 
     <%= yield %>

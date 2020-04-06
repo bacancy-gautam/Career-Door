@@ -1,21 +1,21 @@
 <% if company_approved? %>
-  <% if company_subscribed? or remaining_days_more_than_zero?(@remaining_days) %>
-    <% unless company_subscribed? %>
-      <div class="trial_panel">Your trial expires in <%= @remaining_days %> days (<%= link_to 'Pay Now', new_company_charge_path(current_company), {style: "color: yellow"} %>)</div>
-    <% end %>
-    <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br/> 
-    <%= link_to 'Edit', edit_company_registration_path %><br/>
-    Hello <%= current_company.name %><br/>
-    <%= link_to 'Jobs', company_opening_jobs_path(current_company) %><br/>
-  <% else %>
-    <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br/> 
-    <center>
-      <h2>Your trial period Expired!</h2>
-      <h5 style="color: red">(You can activate your account <a style="color: green" href="/companies/<%= current_company.id %>/charges/new">here</a>)</h5>
-    </center>
-  <% end %>
+  <div class="main-content">
+    <div class="section__content section__content--p30">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+          </div>
+        </div>
+        <div class="row-padding">
+          <div class="col-lg-6">
+            Hello <%= current_company.name %><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% else %>
-  <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br/> 
+  <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br />
   <center>
     <h2>Your request has been successfully sent to the admin!</h2>
     <h5 style="color: green">(Once request has been approved you can use your account)</h5>

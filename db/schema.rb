@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_124640) do
+ActiveRecord::Schema.define(version: 2020_04_03_134721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "companies_roles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "role_id"
+    t.index ["company_id"], name: "index_companies_roles_on_company_id"
+    t.index ["role_id"], name: "index_companies_roles_on_role_id"
+  end
+
   create_table "company_reviews", force: :cascade do |t|
     t.text "company_review"
     t.integer "review_rating"
@@ -69,6 +78,11 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_company_reviews_on_company_id"
     t.index ["user_id"], name: "index_company_reviews_on_user_id"
+  end
+
+  create_table "company_roles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "interested_people", force: :cascade do |t|
@@ -90,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.decimal "cgpa", precision: 64, scale: 12
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "open", default: false
     t.index ["company_id"], name: "index_opening_jobs_on_company_id"
     t.index ["technology_id"], name: "index_opening_jobs_on_technology_id"
   end
@@ -146,6 +161,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "provider"
+    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -160,6 +177,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "companies_roles", "companies"
+  add_foreign_key "companies_roles", "roles"
   add_foreign_key "company_reviews", "companies"
   add_foreign_key "company_reviews", "users"
   add_foreign_key "opening_jobs", "companies"
@@ -167,4 +186,3 @@ ActiveRecord::Schema.define(version: 2020_03_30_124640) do
   add_foreign_key "resumes", "users"
   add_foreign_key "subscriptions", "companies"
 end
-

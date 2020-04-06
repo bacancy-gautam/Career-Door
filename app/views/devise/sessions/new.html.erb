@@ -1,26 +1,61 @@
-<h2>Log in</h2>
+<body class="animsition">
+  <div class="page-wrapper">
+    <div class="page-content--bge7">
+      <div class="container">
+        <div class="login-wrap">
+          <div class="login-content">
+            <div class="login-logo">
+              <a href="#">
+                <h2>Login</h2>
+              </a>
+            </div>
+            <div class="login-form">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-group">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "au-input au-input--full" %>
+                </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                <div class="form-group">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "current-password", class: "au-input au-input--full" %>
+                </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+                <div class="login-checkbox">
+                  <% if devise_mapping.rememberable? %>
+                    <div class="form-group">
+                      <%= f.check_box :remember_me, class: "login-checkbox" %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                  <label>
+                    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                    <% end %>
+                  </label>
+                </div>
+                <%= f.submit "Log in", class: "au-btn au-btn--block au-btn--green m-b-20" %>
+                <%= render "devise/shared/links" %>
+              <% end %>
+              <div class="register-link">
+                <p>
+                  Don't you have account?
+                  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                    <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+                  <% end %>
+                </p>
+                <p>
+                  Are you a company?
+                  
+                    <%= link_to "Company Sign In", new_company_session_path %><br />
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ChargesController < ApplicationController
+  def index
+    @subscriptions = Subscription.all
+  end
+
   def create
     @amount = 500
     customer = Stripe::Customer.create({

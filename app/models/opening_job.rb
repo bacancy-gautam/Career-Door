@@ -10,6 +10,8 @@ class OpeningJob < ApplicationRecord
   belongs_to :technology
   has_many :interested_people, dependent: :destroy
   has_many :users, through: :interested_people
+  
+  scope :open_job, -> { where(open: true) }
 
   after_create :notify_user
 
@@ -19,4 +21,5 @@ class OpeningJob < ApplicationRecord
       NotifyUsersMailer.notify_users_for_new_job(user, self).deliver
     end
   end
+
 end

@@ -13,38 +13,38 @@
             </ul>
           <% end %>
 
-          <div class="field">
+          <div class="form-group">
             <%= f.label :job_role %><span class="myspan">*</span><br />
-            <%= f.text_field :job_role, autofocus: true, autocomplete: "job_role", class: "form_text col-md-12" %>
+            <%= f.text_field :job_role, autofocus: true, autocomplete: "job_role", class: "au-input au-input--full" %>
           </div>
 
-          <div class="field"><span class="myspan">&nbsp;</span>
+          <div class="form-group"><span class="myspan">&nbsp;</span>
             <%= f.label :description %><br />
-            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form_text col-md-12" %>
+            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "au-input au-input--full" %>
           </div>
 
-          <div class="field"><span class="myspan">*</span>
+          <div class="form-group"><span class="myspan">*</span>
             <%= f.label :minimum_experience %><br />
-            <%= f.number_field :experience, autofocus: true, min: 0, value: 1, class: "form_text col-md-12" %>
+            <%= f.number_field :experience, autofocus: true, min: 0, value: 1, class: "au-input au-input--full" %>
           </div>
 
-          <div class="field"><span class="myspan">*</span>
+          <div class="form-group"><span class="myspan">*</span>
             <%= f.label :minimum_cgpa %><br />
-            <%= f.text_field :cgpa, autofocus: true, min: 0, value: 8.00, class: "form_text col-md-12" %>
+            <%= f.text_field :cgpa, autofocus: true, min: 0, value: 8.00, class: "au-input au-input--full" %>
           </div>
 
-          <div class="field"><span class="myspan">*</span>
+          <div class="form-group"><span class="myspan">*</span>
             <%= f.label :technology %><br />
-            <%= f.collection_select :technology_id, Technology.all, :id, :technology_name, { prompt: "Select Technology" }, { class: "nice-select wide col-md-12" } %>
+            <%= f.collection_select :technology_id, Technology.all, :id, :technology_name, { prompt: "Select Technology" }, { class: "au-input au-input--full" } %>
           </div>
 
-          <div class="field">
+          <div class="form-group">
             <%= f.hidden_field :company_id, value: @company.id %>
           </div>
 
           <br />
           <div class="field">
-            <%= f.submit %>
+            <%= f.submit class: "btn btn-primary btn-lg" %>
           </div>
         <% end %>
       </div>

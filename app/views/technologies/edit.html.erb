@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_with model: @added_technology, url: technologies_path, validate: true, local: true do |f| %>
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">  
+      <%= form_with model: @added_technology,  validate: true, local: true do |f| %>
 
       <div class="form-group">
         <%= f.label :technology_name %><br />
-        <%= f.text_field :technology_name, class: "form-control" %>
+        <%= f.text_field :technology_name, class: "au-input au-input--full"  %>
       </div>
 
       <div class="form-group">
-        <%= f.submit "submit", class: "btn btn-primary" %>
+        <%= f.submit "submit", class: "btn btn-primary btn-lg" %>
         <% end %>
       </div>
 
