@@ -3698,7 +3698,7 @@ input[type=button].btn-block {
     background-color: transparent;
     background-image: none;
     filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .open>.dropdown-menu {
