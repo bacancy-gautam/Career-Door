@@ -17,15 +17,19 @@
                 </thead>
 
                 <tbody>
-                  <% @resumes.each do |user_resume| %>
-                  <tr>
-                    <td><%= user_resume.resume_name %></td>
-                    <td><%= link_to 'download', url_for(user_resume.file) %></td>
-                    <td><%= link_to "Edit", edit_resume_path(user_resume.id) %></td>
-                    <td>
-                      <%= link_to 'Delete', resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete %>
-                    </td>
-                  </tr>
+                  <% if !@resumes.blank? %>
+                    <% @resumes.each do |user_resume| %>
+                    <tr>
+                      <td><%= user_resume.resume_name %></td>
+                      <td><%= link_to 'download', url_for(user_resume.file) %></td>
+                      <td><%= link_to "Edit", edit_resume_path(user_resume.id) %></td>
+                      <td>
+                        <%= link_to 'Delete', resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete %>
+                      </td>
+                    </tr>
+                    <% end %>
+                  <% else %>
+                    <span class="alert">***Data not available</span>
                   <% end %>
                 </tbody>
               </table>

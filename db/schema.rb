@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_04_03_134721) do
     t.string "whichtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "approved", default: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.boolean "approved", default: false
     t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
@@ -78,11 +78,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_134721) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_company_reviews_on_company_id"
     t.index ["user_id"], name: "index_company_reviews_on_user_id"
-  end
-
-  create_table "company_roles", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "interested_people", force: :cascade do |t|
@@ -110,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_134721) do
   end
 
   create_table "resumes", force: :cascade do |t|
+    t.string "name"
+    t.string "resume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "resume_name"

@@ -12,3 +12,9 @@
 
 .container-padding{ padding-top: 10%;}
 .row-padding{ padding-top: 8%;}
+
+.alert {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
