@@ -10,8 +10,8 @@
 admin = User.new(
   firstname: 'career',
   lastname: 'door',
-  username: 'careerdooradmin',
-  email: 'careerdooradmin@gmail.com',
+  username: 'siteadmin',
+  email: 'urmit.prajapati@bacancytechnology.com',
   contact: '+91-123 456 7890',
   password: 'Admin@careerdoor',
   password_confirmation: 'Admin@careerdoor'
