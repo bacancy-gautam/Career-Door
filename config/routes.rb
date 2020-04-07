@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
-    sessions: 'companies/sessions'
+    sessions: 'companies/sessions',
+    confirmations: 'companies/confirmations'
   }
 
   devise_for :users, controllers: {
