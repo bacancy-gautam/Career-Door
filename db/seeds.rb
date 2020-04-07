@@ -16,6 +16,5 @@ admin = User.new(
   password: 'Admin@careerdoor',
   password_confirmation: 'Admin@careerdoor'
 )
-binding.pry
 admin.add_role :super_admin
 admin.save
