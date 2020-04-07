@@ -20,6 +20,9 @@
             <li class="active has-sub">
                 <%= link_to "Available Jobs", jobs_list_user_opening_jobs_path(current_user)%>
             </li>
+            <li class="active has-sub">
+                <%= link_to "Interested/Applied Jobs", home_applied_job_list_user_path(current_user)%>
+            </li>
           </ul>
         </nav>
       </div>

@@ -7,6 +7,6 @@ class HomeController < ApplicationController
   end
 
   def applied_job_list
-    @jobs = current_company.opening_jobs
+    @jobs = current_user.opening_jobs
   end
 end
