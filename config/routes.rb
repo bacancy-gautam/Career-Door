@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  default_url_options host: "https://career-doorr.herokuapp.com", port: 587
+  # default_url_options host: "https://career-doorr.herokuapp.com", port: 587
 
   root to: 'home#index'
   devise_for :companies, controllers: {
