@@ -29,13 +29,13 @@
             Hello <%= current_company.name %><br />
           </div>
         </div>
+        <% else %>
+          <center>
+            <h2>Your request has been successfully sent to the admin!</h2>
+            <h5 style="color: green">(Once request has been approved you can use your account)</h5>
+          </center>
+        <% end %>
       </div>
     </div>
   </div>
-<% else %>
-  <%= link_to 'Logout', destroy_company_session_path, method: :delete %><br />
-  <center>
-    <h2>Your request has been successfully sent to the admin!</h2>
-    <h5 style="color: green">(Once request has been approved you can use your account)</h5>
-  </center>
-<% end %>
+</div>
