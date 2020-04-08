@@ -1,4 +1,4 @@
-<% if !@jobs.blank? %>
+<% if @jobs.present? %>
   <% @jobs.each do |job| %>
     <tr>
       <td title ="Job Role"><%= job.job_role %></td>

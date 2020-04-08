@@ -2,16 +2,17 @@
 
 .text-align-ceneter{ text-align: center; }
 
-.background-color-red{ background-color: red; }
+.bgc_red{ background-color: red; }
 
-.bold-font{ font-weight: bold; }
+.fw_bold{ font-weight: bold; }
 
-.font-color-white{ color: white; }
+.fc_white{ color: white; }
 
-.font-color-yellow{ color: yellow; }
+.fc_yellow{ color: yellow; }
 
-.container-padding{ padding-top: 10%;}
-.row-padding{ padding-top: 8%;}
+.pt10pct{ padding-top: 10%; }
+
+.pt8pct{ padding-top: 8%; }
 
 .alert {
   color: red;

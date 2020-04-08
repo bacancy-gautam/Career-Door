@@ -29,7 +29,7 @@ class Company < ApplicationRecord
 
   def self.search(search)
     if search
-      Company.where("lower(name) LIKE ?", "%#{search.downcase}%")
+      Company.where("name iLIKE ?", "%#{search}%")
     else
       Company.all
     end

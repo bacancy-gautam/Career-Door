@@ -1,4 +1,4 @@
-<% if !@subscriptions.blank? %>
+<% if @subscriptions.present? %>
   <% @subscriptions.each do |subscription| %>
     <tr>
       <td title="Company details"><%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %></td>

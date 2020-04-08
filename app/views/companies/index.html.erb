@@ -7,7 +7,7 @@
           <% if company_subscribed? or remaining_days_more_than_zero?(@remaining_days) %>
             <% unless company_subscribed? %>
             <div class="col-lg-4">
-              <div class="background-color-red font-color-white bold-font text-align-center">Your trial expires in
+              <div class="bgc_red font-color-white fw_bold text-align-center">Your trial expires in
                 <%= @remaining_days %> days
               </div>
             </div>
@@ -24,7 +24,7 @@
             </center>
           <% end %>
         </div>
-        <div class="row-padding">
+        <div class="pt8pct">
           <div class="col-lg-6">
             Hello <%= current_company.name %><br />
           </div>

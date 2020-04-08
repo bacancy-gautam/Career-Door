@@ -1,5 +1,5 @@
 <% # <% binding.pry %>
-<% if !@jobs.blank? %>
+<% if @jobs.present? %>
   <% @jobs.each do |job| %>
     <tr>
       <td title ="Comapany details"><%= link_to job.company.name, company_path(job.company) %></td>
