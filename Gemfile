@@ -11,6 +11,10 @@ gem 'devise'
 gem 'client_side_validations'
 gem 'hirb'
 gem 'jquery-rails'
+# City-state gem
+gem 'city-state'
+# geocoder
+gem 'geocoder'
 # sign in with google and github
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

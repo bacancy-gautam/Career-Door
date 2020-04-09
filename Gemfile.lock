@@ -81,6 +81,8 @@ GEM
       xpath (~> 3.2)
     character_set (1.4.0)
     childprocess (3.0.0)
+    city-state (0.1.0)
+      rubyzip (>= 1.1)
     client_side_validations (16.1.0)
       jquery-rails (~> 4.3)
       js_regex (~> 3.1)
@@ -99,6 +101,7 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
+    geocoder (1.6.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -295,8 +298,10 @@ DEPENDENCIES
   bootstrap
   byebug
   capybara (>= 2.15)
+  city-state
   client_side_validations
   devise
+  geocoder
   hirb
   jbuilder (~> 2.7)
   jquery-rails
