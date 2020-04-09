@@ -3,7 +3,7 @@
 # crate delete read operations for  resumes
 class ResumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_resume, only: %i[edit update destroy]
+  before_action :find_resume, only: %i[show edit update destroy]
 
   def index
     @resumes = current_user.resumes

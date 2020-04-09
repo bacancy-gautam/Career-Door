@@ -1,11 +1,14 @@
-<% if !@subscriptions.blank? %>
+<% if !@subscriptions.blank?%>
   <% @subscriptions.each do |subscription| %>
+    <% if subscription.company.approved? %>
     <tr>
       <td title="Company details"><%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %></td>
       <td title ="Subscribed? "><%= subscribed(subscription) %></td>
       <td title="Days to complete trial"><%= days_left(subscription) %></td>
       <td title ="Subscription date"><%= subscription&.subscription_date %></td>
+      <td title ="Un Approve"><%= link_to 'Un Approve', companies_approve_company_super_admin_path(subscription.company) %></td>
     </tr>
+    <% end %>
   <% end %>
 <% else %>
   <span class="alert">***Data not available</span>
