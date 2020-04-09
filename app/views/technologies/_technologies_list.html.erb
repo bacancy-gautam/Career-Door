@@ -4,7 +4,7 @@
     <td><%= link_to "edit", edit_technology_path(technology.id) %></td>
     <td><%= link_to "show", technology_path(technology.id) %></td>
     <td>
-      <%= link_to "delete", technology_path(technology.id), :confirm => "are you sure?", data: { method: :delete } %>
+      <%= link_to "delete", technology_path(technology.id), confirm: "are you sure?", data: { method: :delete }, remote: true %>
     </td>
   </tr>
 <% end %>
