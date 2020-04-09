@@ -10,6 +10,8 @@ gem 'devise'
 # use client side validation to validates form on front end side.
 gem 'client_side_validations'
 gem 'hirb'
+# font-awesome
+gem "font-awesome-rails"
 gem 'jquery-rails'
 # City-state gem
 gem 'city-state'
