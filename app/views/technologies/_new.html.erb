@@ -1,0 +1,12 @@
+<div id="my_form">
+  <%= form_with model: @new_technology, url: technologies_path, validate: true do |f| %>
+    <div class="form-group">
+      <%= f.label :technology_name %><br />
+      <%= f.text_field :technology_name, class: "au-input au-input--full" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "submit", class: "btn btn-primary btn-lg" %>
+    </div>
+  <% end %>
+</div>
