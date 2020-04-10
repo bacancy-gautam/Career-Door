@@ -7,6 +7,7 @@ ruby '2.6.3'
 
 gem 'redis'
 gem 'devise'
+gem 'gmaps-rails'
 # use client side validation to validates form on front end side.
 gem 'client_side_validations'
 gem 'hirb'
