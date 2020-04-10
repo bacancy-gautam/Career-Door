@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     member do
       get 'companies/approve_company'
       get 'companies/reject_company'
+      get 'companies/unapprove_company'
     end
   end
   resources :resumes

@@ -2,7 +2,8 @@
 
 class CompaniesController < ApplicationController
   before_action :authenticate_company!, only: %i[index interested_people]
-  before_action :find_company, only: %i[approve_company reject_company show]
+  before_action :find_company, only: %i[approve_company reject_company show 
+                                        unapprove_company]
 
   def index
     @companies = Company.all
@@ -30,10 +31,19 @@ class CompaniesController < ApplicationController
     # binding.pry
   end
 
+  def unapprove_company
+    if @company.update(approved: false)
+      redirect_to super_admins_path, notice: 'Unapproved!'
+    end
+  end
+
   def approve_company
     if @company.update(approved: true)
-      subscription = @company.build_subscription
-      redirect_to super_admins_path, notice: 'Approved!' if subscription.save!
+      if @company.subscription.blank?
+        subscription = @company.build_subscription 
+        flash[:notice] = 'Approved!' if subscription.save!
+      end
+      redirect_to super_admins_path
     end
   end
 
