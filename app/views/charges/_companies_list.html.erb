@@ -6,9 +6,9 @@
       <td title="Days to complete trial"><%= days_left(subscription) %></td>
       <td title ="Subscription date"><%= subscription&.subscription_date %></td>
       <% if subscription.company.approved %>
-        <td title ="Unapprove company"><%= link_to 'Unapprove', companies_unapprove_company_super_admin_path(subscription.company), class: "message btn btn-outline-danger btn-sm" %></td>
+        <td title ="Unapprove company"><%= link_to 'Unapprove', companies_unapprove_company_super_admin_path(subscription.company), class: "message btn btn-outline-danger btn-sm", remote: true %></td>
       <% else %>
-        <td title ="Approve company"><%= link_to 'Approve', companies_approve_company_super_admin_path(subscription.company), class: "btn btn-outline-success btn-sm" %></td>
+        <td title ="Approve company"><%= link_to 'Approve', companies_approve_company_super_admin_path(subscription.company), class: "btn btn-outline-success btn-sm", remote: true %></td>
       <% end %>
     </tr>
   <% end %>

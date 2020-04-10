@@ -17,8 +17,6 @@ $(document).on('click', '#close_form', function () {
   $('#new_tech_link').show();
 });
 
-
-
 // $(document).on('change', '#company_city', function () {
 //   alert("Country: "+$( "#company_country" ).text()+" State: "+$( "#company_state" ).text()+" City: "+$( "#company_city" ).text());
 // });

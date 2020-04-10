@@ -32,9 +32,9 @@ class CompaniesController < ApplicationController
   end
 
   def unapprove_company
-    if @company.update(approved: false)
-      redirect_to super_admins_path, notice: 'Unapproved!'
-    end
+    @company.update(approved: false)
+    @subscriptions = Subscription.all
+      # redirect_to super_admins_path, notice: 'Unapproved!'
   end
 
   def approve_company
@@ -42,8 +42,13 @@ class CompaniesController < ApplicationController
       if @company.subscription.blank?
         subscription = @company.build_subscription 
         flash[:notice] = 'Approved!' if subscription.save!
+      else
+        @subscriptions = Subscription.all
       end
-      redirect_to super_admins_path
+      respond_to do |format|
+        format.js
+        format.html {redirect_to super_admins_path}
+      end
     end
   end
 
