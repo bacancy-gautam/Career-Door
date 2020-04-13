@@ -18,6 +18,7 @@ require("packs/jquery.raty")
 // require("https://code.jquery.com/jquery-2.1.4.min.js")
 // require("https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js")
 require("packs/custom")
+require('jquery-ui');
 
 // require ("gmaps")
 // require ("gmaps_ujs")

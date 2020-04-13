@@ -56,6 +56,9 @@ class CompaniesController < ApplicationController
     redirect_to super_admins_path, notice: 'Rejected!' if @company.destroy
   end
 
+  def chat
+  end
+
   private
 
   def find_company

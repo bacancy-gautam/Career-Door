@@ -14,6 +14,7 @@ gem 'hirb'
 # font-awesome
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # City-state gem
 gem 'city-state'
 # geocoder
