@@ -28,7 +28,7 @@
           <div class="col-lg-6">
             Hello <%= current_company.name %><br />
           </div>
-          
+          <%= link_to 'Chat', chat_company_path(current_company), remote: true %>
         </div>
         <% else %>
           <center>
