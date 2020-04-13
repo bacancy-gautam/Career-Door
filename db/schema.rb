@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_105004) do
+ActiveRecord::Schema.define(version: 2020_04_10_055208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_105004) do
     t.date "subscription_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "un_subscribe_date"
     t.index ["company_id"], name: "index_subscriptions_on_company_id"
   end
 

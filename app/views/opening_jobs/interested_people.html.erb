@@ -1,24 +1,32 @@
 <% # <%= link_to "Back", admin_index_path %>
-<%= link_to "Back ", :back %>||
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <%= link_to "Back ", :back %>||
 
-<body>
-  <div class="container">
-    <table class="table table-hover">
-      <thead clas="thead-dark">
-        <tr>
-          <th>Username</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Contact No.</th>
-          <th>Email</th>
-          <th>Experience(y)</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="interested_list_body">
-        <%= render "interested.html.erb" %>
-      </tbody>
-    </table>
+        <body>
+          <div class="container">
+            <table class="table table-hover">
+              <thead clas="thead-dark">
+                <tr>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact No.</th>
+                  <th>Email</th>
+                  <th>Experience(y)</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="interested_list_body">
+                <%= render "interested.html.erb" %>
+              </tbody>
+            </table>
+          </div>
+        </body>
+      </div>
+    </div>
   </div>
-</body>
+</div>

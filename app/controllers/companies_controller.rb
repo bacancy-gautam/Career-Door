@@ -7,10 +7,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    diff = Time.now.utc - current_company.subscription.created_at
-    @remaining_days = ((15.days.seconds - diff) / 1.day).to_i
-  rescue StandardError
-    @remaining_days = 0
+    @remaining_days = helpers.remaining_days(current_company)
   end
 
   def show
@@ -25,11 +22,10 @@ class CompaniesController < ApplicationController
 
   def approve_company
     if @company.approved?
-      @company.update(approved: false)
-      @company.subscription.update(subscribed: false)
+      helpers.un_subscribe(@company)
       redirect_to super_admins_path, alert: 'Un Approved!'
     elsif @company.update(approved: true)
-      subscription = @company.build_subscription
+      subscription = helpers.subscription(@company)
       redirect_to super_admins_path, notice: 'Approved!' if subscription.save!
     end
   end
