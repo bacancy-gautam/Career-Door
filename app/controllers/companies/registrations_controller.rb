@@ -45,7 +45,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[name description website mobile
                                                address whichtype city state country])
-    binding.pry
+    # binding.pry
   end
 
   # If you have extra params to permit, append them to the sanitizer.
