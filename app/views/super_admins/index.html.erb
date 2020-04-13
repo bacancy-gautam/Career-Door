@@ -28,7 +28,7 @@
                 <div class="table-responsive table--no-card m-b-40">
             <table class="table table-borderless table-striped table-earning">
               <tbody id="clist">
-                <% if !@companies.blank? %>
+                <% if @companies.present? %>
                   <% @companies.each do |company| %>
                   <tr>
                     <td title="Company details"><%= link_to company.name, company_path(company), style: "color:black;" %>

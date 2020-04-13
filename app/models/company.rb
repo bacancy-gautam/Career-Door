@@ -26,4 +26,12 @@ class Company < ApplicationRecord
   def assign_default_role
     add_role(:company) if roles.blank?
   end
+
+  def self.search(search)
+    if search
+      Company.where("name iLIKE ?", "%#{search}%")
+    else
+      Company.all
+    end
+  end
 end
