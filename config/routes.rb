@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  default_url_options host: "https://career-doorr.herokuapp.com"
   root to: 'home#index'
+
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
     sessions: 'companies/sessions',
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   }
 
   resources :users do
+    get 'home/applied_job_list', on: :member
     resources :opening_jobs do
       get 'jobs_list', on: :collection
       get 'apply', on: :member

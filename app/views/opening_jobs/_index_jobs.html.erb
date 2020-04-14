@@ -1,4 +1,4 @@
-<% if !@jobs.blank? %>
+<% if @jobs.present? %>
   <% @jobs.each do |job| %>
     <tr>
       <td title ="Job Role"><%= job.job_role %></td>
@@ -9,6 +9,7 @@
       <td><%= link_to "Delete", company_opening_job_path(current_company,job), method: :delete, data: { confirm: "Are you sure?" }, class: "genric-btn danger-border radius medium fa fa-trash", title: "Delete Job post" %></td>
       <td><%= link_to "Interested People",  interested_people_company_opening_job_path(current_company,job), class: "genric-btn info-border radius medium fa fa-pencil-square-o", title: "Interested People" %></td>
       <td><%= link_to opened(job),  open_close_post_company_opening_job_path(current_company,job), class: "genric-btn info-border radius medium fa fa-pencil-square-o", title: "Open/Close" %></td>
+      <td><%= link_to 'applied candidates', applied_candidates_path(job) %>
     </tr>
   <% end %>
 <% else %>

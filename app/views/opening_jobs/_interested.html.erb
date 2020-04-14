@@ -1,5 +1,5 @@
 <% # <% binding.pry %>
-<% if !@interested_people.blank? %>
+<% if @interested_people.present? %>
   <% @interested_people.each do |person| %>
     <tr>
       <td title ="Username"><%= person.username %></td>

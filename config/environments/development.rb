@@ -48,7 +48,7 @@ Rails.application.configure do
     port: 587,
     authentication: :plain,
     enable_starttls_auto: true
-  } 
+  }
 
   config.action_mailer.perform_caching = false
 

@@ -15,13 +15,17 @@
                   <h4>Job description:</h4> <%= @job.description %><br />=========================<br />
                   <h4>Job Experience(years):</h4> <%= @job.experience %><br />=========================<br />
                   <h4>CGPA:</h4> <%= @job.cgpa %><br /><br />
-                  <% if interested?(@job) %>
-                    <%= link_to 'Interested', interested_user_opening_job_path %>
-                  <% end %>
-                  <% if !applied?(@job) %>
-                    <%= link_to 'Apply', apply_user_opening_job_path, class: "btn btn-success btn-lg" %>
+                  <% if eligible?(@job,current_user) %>
+                    <% if interested?(@job) %>
+                      <%= link_to 'Interested', interested_user_opening_job_path %>
+                    <% end %>
+                    <% if !applied?(@job) %>
+                      <%= link_to 'Apply', applied_jobs_new_user_opening_job_path, class: "btn btn-success btn-lg" %>
+                    <% else %>
+                      <%= link_to 'Un-apply', un_apply_user_opening_job_path, method: :delete,class: "btn btn-danger btn-lg" %>
+                    <% end %>
                   <% else %>
-                    <%= link_to 'Un-apply', apply_user_opening_job_path, class: "btn btn-danger btn-lg" %>
+                    <h5 class="h5-danger">sorry, you are not eligible for this job</h5>
                   <% end %>
                 </div>
               </div>

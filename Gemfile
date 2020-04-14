@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'rolify'
+# Pagination
+gem 'will_paginate'
 # Payment
 gem 'stripe'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
