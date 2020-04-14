@@ -25,7 +25,8 @@
                   <% if @companies.present? %>
                     <% @companies.each do |company| %>
                     <tr>
-                      <td title="Company details"><%= link_to company.name, company_path(company) %></td>
+                      <td title="Company details"><%= image_tag company.avatar.url, class: "circleBase type2" %>&nbsp;
+                      <%= link_to company.name, company_path(company) %></td>
                       <td><div class="star-rating" data-score=<%= review(company) %>></div></td>
                       <td><%= reviewers(company) %></td>
                     </tr>

@@ -13,6 +13,11 @@
               <%= render "devise/shared/error_messages", resource: resource %>
 
               <div class="form-group">
+                <%= f.label :company_logo %><br />
+                <%= f.file_field :avatar %>
+              </div>
+
+              <div class="form-group">
                 <%= f.label :company_name %><br />
                 <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "au-input au-input--full" %>
               </div>

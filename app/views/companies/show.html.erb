@@ -55,7 +55,8 @@
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-4 col-md-offset-2">
-              <h1 class="review_title"><%= @company.name %></h1>
+            
+              <h1 class="review_title"><%= image_tag @company.avatar.url, class: "circleBase type3" %>&nbsp;<%= @company.name %></h1>
               <p><%= @company.description %></p>
               <div id="new_review"></div>
               <% if @company_reviews.blank? %>

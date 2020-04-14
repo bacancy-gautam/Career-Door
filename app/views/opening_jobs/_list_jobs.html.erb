@@ -2,7 +2,8 @@
 <% if @jobs.present? %>
   <% @jobs.each do |job| %>
     <tr>
-      <td title ="Comapany details"><%= link_to job.company.name, company_path(job.company) %></td>
+      <td title ="Comapany details"><%= image_tag job.company.avatar.url, class: "circleBase type2" %>
+      &nbsp;<%= link_to job.company.name, company_path(job.company) %></td>
       <td title ="Job Role"><%= job.job_role %></td>
       <td title ="Technology"><%= job.technology.technology_name %></td>
       <td title ="Experience"><%= job.experience %></td>

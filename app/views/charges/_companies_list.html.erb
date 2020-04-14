@@ -1,7 +1,11 @@
 <% if @subscriptions.present? %>
   <% @subscriptions.each do |subscription| %>
     <tr>
-      <td title="Company details"><%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %></td>
+      <td title="Company details">
+        <%= image_tag subscription.company.avatar.url, 
+        class: "circleBase "+ (subscription.company.approved ? "type2g": "type2r") %>
+        &nbsp;<%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %>
+      </td>
       <td title ="Subscribed? "><%= subscribed(subscription) %></td>
       <td title="Days to complete trial"><%= days_left(subscription) %></td>
       <td title ="Subscription date"><%= subscription&.subscription_date %></td>

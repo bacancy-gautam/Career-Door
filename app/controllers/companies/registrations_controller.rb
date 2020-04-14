@@ -44,7 +44,8 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[name description website mobile
-                                               address whichtype city state country])
+                                               address whichtype city state
+                                               country avatar])
     # binding.pry
   end
 
@@ -52,7 +53,8 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
                                       keys: %i[name description website mobile
-                                               address whichtype city state country])
+                                               address whichtype city state
+                                               country avatar])
   end
 
   # The path used after sign up.

@@ -28,6 +28,9 @@
           <div class="col-lg-6">
             Hello <%= current_company.name %><br />
           </div>
+          <%= image_tag current_company.avatar.url, class: "circleBase type2" %>
+          <%#= image_tag current_company.avatar.url(:medium), class: "circleBase type1" %>
+          <%#= image_tag current_company.avatar.url(:thumb), class: "circleBase type2" %>
           <%= link_to 'Chat', chat_company_path(current_company), remote: true %>
         </div>
         <% else %>
