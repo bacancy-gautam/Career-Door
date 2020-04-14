@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  default_url_options host: "https://career-doorr.herokuapp.com"
   root to: 'home#index'
 
   devise_for :companies, controllers: {
@@ -21,11 +20,15 @@ Rails.application.routes.draw do
     get 'home/applied_job_list', on: :member
     resources :opening_jobs do
       get 'jobs_list', on: :collection
+      get 'applied_jobs/new', to: 'applied_jobs#new',on: :member
+      post '/applied_jobs', to: 'applied_jobs#create',on: :member, as: 'applied'
+      delete '/applied_jobs', to: 'applied_jobs#destroy',on: :member, as: 'un_apply'
       get 'apply', on: :member
       get 'interested', on: :member
     end
   end
 
+  
   resources :companies, only: %i[index show] do
     resources :charges, on: :member
     resources :company_reviews
@@ -36,7 +39,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
   resources :technologies
   resources :super_admins do
     get 'charges/index', on: :collection
@@ -46,4 +49,5 @@ Rails.application.routes.draw do
     end
   end
   resources :resumes
+  get '/applied_jobs/:job_id', to: 'applied_jobs#show', as:'applied_candidates'
 end

@@ -10,6 +10,8 @@
 
 .fc_yellow{ color: yellow; }
 
+.container-padding{ padding-top: 10%;}
+.row-padding{ padding-top: 10%;}
 .pt10pct{ padding-top: 10%; }
 
 .pt8pct{ padding-top: 8%; }
@@ -19,3 +21,13 @@
   font-weight: bold;
   text-align: center;
 }
+.h5-danger{ color: red; }
+.body-grey{ background: #CCCCFF; }
+
+.review_title { margin: 0 0 20px 0; }
+.star-rating { padding-bottom: 8px; }
+.reviews {
+	padding: 15px 0;
+  border-bottom: 1px solid #EAEAEA; }
+.background-color-green{ background-color: green; }
+.background-color-green{ background-color: red; }

@@ -1,0 +1,42 @@
+<%= form_with model: @applied_job, url: applied_user_opening_job_path, local: true do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :firstname %><br />
+        <%= f.text_field :firstname, autofocus: true, value: current_user.firstname,class: "au-input au-input--full" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :lastname %><br />
+        <%= f.text_field :lastname, autofocus: true, value: current_user.lastname,class: "au-input au-input--full" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, value: current_user.email,autocomplete: "email", class: "au-input au-input--full" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :contact%><br />
+        <%= f.text_field :contact, autofocus: true, value: current_user.contact,class: "au-input au-input--full" %>
+      </div>
+
+      <div class="form-group" id="user_experience" style="display:none">
+        <%= f.label :jobexperience%><br />
+        <%= f.text_field :years_of_experience, value: current_user.years_of_experience,autofocus: true, class: "au-input au-input--full" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :cgpa %><br />
+        <%= f.text_field :cgpa, autofocus: true,class: "au-input au-input--full" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :Resume %>
+        <%= f.collection_select(:resume,  current_user.resumes, :id, :resume_name, prompt: true)%>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "submit", class: "au-btn au-btn--block au-btn--green m-b-20" %>         
+      </div>   
+<% end %>

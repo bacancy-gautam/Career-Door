@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.configuration.stripe = {
-  publishable_key: ENV['publishable_key'],
-  secret_key: ENV['secret_key']
+  publishable_key: Rails.application.credentials.stripe[:development][:publishable_key],
+  secret_key: Rails.application.credentials.stripe[:development][:secret_key]
 }
-
-Stripe.api_key = ENV['secret_key']
+Stripe.api_key = Rails.configuration.stripe[:secret_key]

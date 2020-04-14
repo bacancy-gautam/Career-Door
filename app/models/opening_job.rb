@@ -7,14 +7,17 @@ class OpeningJob < ApplicationRecord
   validates :cgpa, presence: true, format: { multiline: true, with: /^[0-9](\.[0-9]+)?$/, message: 'only digits are allowed' }
 
   belongs_to :company
-  belongs_to :technology
   has_many :interested_people, dependent: :destroy
-  has_many :users, through: :interested_people
+  has_many :applied_jobs, dependent: :destroy
+  has_many :users, through: :applied_jobs
   
+  serialize :technologies, Array
   scope :open_job, -> { where(open: true) }
 
   after_create :notify_user
-
+  before_save do
+    self.technology_id.gsub!(/[\[\]\"]/,"") if attribute_present?("technology_id")
+  end
   def notify_user
     users = User.all
     users.each do |user|

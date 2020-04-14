@@ -1,41 +1,7 @@
-<% if company_approved? %>
-  <div class="main-content">
-    <div class="section__content section__content--p30">
-      <div class="container-fluid">
-        <div class="row">
-
-          <% if company_subscribed? or remaining_days_more_than_zero?(@remaining_days) %>
-            <% unless company_subscribed? %>
-            <div class="col-lg-4">
-              <div class="bgc_red font-color-white fw_bold text-align-center">Your trial expires in
-                <%= @remaining_days %> days
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <%= link_to 'Pay Now', new_company_charge_path(current_company) ,class: "btn btn-outline-success" %>
-            </div>
-            <% end %>
-            <br />
-          <% else %>
-            <center>
-              <h2>Your trial period Expired!</h2>
-              <h5 style="message">(You can activate your account <a style="color: green"
-                  href="/companies/<%= current_company.id %>/charges/new">here</a>)</h5>
-            </center>
-          <% end %>
-        </div>
-        <div class="pt8pct">
-          <div class="col-lg-6">
-            Hello <%= current_company.name %><br />
-          </div>
-        </div>
-        <% else %>
-          <center>
-            <h2>Your request has been successfully sent to the admin!</h2>
-            <h5 style="color: green">(Once request has been approved you can use your account)</h5>
-          </center>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% if current_company %>
+  <%= render 'company_index' %>
+<% elsif current_user.has_role? :super_admin %>
+  <%= render 'all_company_index' %>
+<% else %>
+  <h2>you are not authorised person</h2>
+<% end %>

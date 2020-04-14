@@ -9,14 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <body class=<%= "#{controller_name}-#{action_name}" %>>
-    <center>
-      <div style="background-color: green;">
-        <span class="text-center" style="color: white; font-weight: bold; background-color: green;"><%= notice %></span>
-      </div>
-      <div style="background-color: red;">
-        <span class="text-center" style="color: white; font-weight: bold"><%= alert %></span>
-      </div>
+  <body >
+    <center >
+    <%= render 'layouts/alerts' %>
     </center>
 
     <% if current_user&.has_role? :user %>

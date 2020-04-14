@@ -11,6 +11,7 @@ class OpeningJobsController < ApplicationController
 
   def new
     @job = OpeningJob.new
+    @technologies = Technology.all
   end
 
   def create
@@ -87,20 +88,20 @@ class OpeningJobsController < ApplicationController
 
   def open_close_post
     @job.update(open: !@job.open)
-    redirect_to company_opening_jobs_path, notice: "Done"
+    redirect_to company_opening_jobs_path, notice: 'Done'
   end
 
   private
 
   def jobs_params
     params.required(:opening_job).permit(:job_role, :company_id,
-                                         :technology_id,
                                          :experience, :job_role,
-                                         :description, :cgpa)
+                                         :description, :cgpa, technologies: [])
   end
 
   def find_job
     @job = OpeningJob.find(params[:id])
+    @technologies = Technology.all
   end
 
   def find_company

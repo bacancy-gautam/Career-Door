@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+
+              <br>
+              <br>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th><strong>Company Name:</strong></th>
+                      <th><strong>Description:</strong></th>
+                      <th><strong>Type:</strong></th>
+                      <th><strong>Website:</strong></th>
+                      <th><strong>Email:</strong></th>
+                      <th><strong>Address:</strong></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <%@companies.each do |company|%>
+                    <tr>
+                      <td><%= company.name %></td>
+                      <td><%= company.description %></td>
+                      <td><%= company.whichtype %></td>
+                      <td><%= company.website %></td>
+                      <td><%= company.email %></td>
+                      <td><%= company.address %></td>
+                      <td><%= link_to 'show review', company_path(company) %></td>
+                  </tbody>
+                  <%end%>
+                </table>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

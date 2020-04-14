@@ -1,0 +1,50 @@
+<div class="main-content">
+  <div class="section__content section__content--p60">
+    <div class="container-fluid">
+      <div class="col-lg-20">
+        <div class="au-card au-card--bg-blue au-card-top-countries m-b-80">
+          <div class="au-card-inner">
+            <div class="table-responsive">
+              <%= form_tag users_path, class: "form-inline", :method => "get" do %>
+                <%= text_field_tag :email, nil, placeholder: "Enter email", class: "form-control mr-sm-2" %>
+                <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0" %>
+              <% end %>
+              <table class='table'>
+
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th> User Name</th>
+                    <th> Email</th>
+                    <th> Contact</th>
+                    <th> Experience/Fresher</th>
+                    <th> Year of Experience</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.firstname %></td>
+                    <td><%= user.lastname %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.contact %></td>
+                    <td><%= user.experience %></td>
+                    <td><%= user.years_of_experience %></td>
+                    <td><%= link_to "Edit", edit_user_path(user) %></td>
+                    <td>
+                      <%= link_to 'Delete', user_path(user), confirm: 'are you sure to delete this resume?', method: :delete %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
