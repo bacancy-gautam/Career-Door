@@ -19,9 +19,10 @@ class User < ApplicationRecord
          :confirmable, :recoverable, :rememberable,
          :validatable, :omniauthable, omniauth_providers: %i[github google_oauth2]
   has_many :interested_people, dependent: :destroy
-  has_many :opening_jobs, through: :interested_people
   has_many :companies, dependent: :destroy
   has_many :company_reviews, dependent: :destroy
+  has_many :applied_jobs , dependent: :destroy
+  has_many :opening_jobs, through: :applied_jobs
   after_create :assign_default_role
 
   def assign_default_role

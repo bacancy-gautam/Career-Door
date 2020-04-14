@@ -1,4 +1,9 @@
 module OpeningJobsHelper
+  
+  def eligible?(job,current_user)
+    current_user.years_of_experience >= job.experience
+  end
+  
   def interested?(job)
     current_user.opening_jobs.where(id: job.id).blank?
   end

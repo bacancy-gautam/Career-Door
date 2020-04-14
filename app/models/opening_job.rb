@@ -8,7 +8,8 @@ class OpeningJob < ApplicationRecord
 
   belongs_to :company
   has_many :interested_people, dependent: :destroy
-  has_many :users, through: :interested_people
+  has_many :applied_jobs, dependent: :destroy
+  has_many :users, through: :applied_jobs
   
   serialize :technologies, Array
   scope :open_job, -> { where(open: true) }

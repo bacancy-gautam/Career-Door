@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_055208) do
+ActiveRecord::Schema.define(version: 2020_04_13_112340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 2020_04_10_055208) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "applied_jobs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "contact"
+    t.string "cgpa"
+    t.string "years_of_experience"
+    t.string "resume"
+    t.bigint "user_id"
+    t.bigint "opening_job_id"
+    t.index ["opening_job_id"], name: "index_applied_jobs_on_opening_job_id"
+    t.index ["user_id"], name: "index_applied_jobs_on_user_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,11 +66,11 @@ ActiveRecord::Schema.define(version: 2020_04_10_055208) do
     t.string "whichtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "approved", default: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.boolean "approved", default: false
     t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
@@ -78,6 +94,11 @@ ActiveRecord::Schema.define(version: 2020_04_10_055208) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_company_reviews_on_company_id"
     t.index ["user_id"], name: "index_company_reviews_on_user_id"
+  end
+
+  create_table "company_roles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "interested_people", force: :cascade do |t|
@@ -104,8 +125,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_055208) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string "name"
-    t.string "resume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "resume_name"
@@ -174,6 +193,8 @@ ActiveRecord::Schema.define(version: 2020_04_10_055208) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "applied_jobs", "opening_jobs"
+  add_foreign_key "applied_jobs", "users"
   add_foreign_key "companies_roles", "companies"
   add_foreign_key "companies_roles", "roles"
   add_foreign_key "company_reviews", "companies"

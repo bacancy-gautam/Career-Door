@@ -30,16 +30,18 @@ module CompaniesHelper
   end
 
   def remaining_days(company)
-    if company.subscription.un_subscribe_date.nil?
-        begin  
-          diff = Time.now.utc - current_company.subscription.created_at
-          remaining_days = ((15.days.seconds - diff) / 1.day).to_i
-        rescue StandardError
-          remaining_days = 0
-        end
-    else
-      day_difference = company.subscription.un_subscribe_date - company.subscription.subscription_date
-      remaining_days = 30 - day_difference.to_i
+    if current_company
+      if company.subscription.un_subscribe_date.nil?
+          begin  
+            diff = Time.now.utc - current_company.subscription.created_at
+            remaining_days = ((15.days.seconds - diff) / 1.day).to_i
+          rescue StandardError
+            remaining_days = 0
+          end
+      else
+        day_difference = company.subscription.un_subscribe_date - company.subscription.subscription_date
+        remaining_days = 30 - day_difference.to_i
+      end
     end
   end
 end

@@ -101,6 +101,7 @@ class OpeningJobsController < ApplicationController
 
   def find_job
     @job = OpeningJob.find(params[:id])
+    @technologies = Technology.all
   end
 
   def find_company
