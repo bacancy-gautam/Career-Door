@@ -19,3 +19,12 @@
   font-weight: bold;
   text-align: center;
 }
+
+.row {
+  position: relative;
+}
+
+.bottom-align-text {
+  position: absolute;
+  bottom: 20px;
+}

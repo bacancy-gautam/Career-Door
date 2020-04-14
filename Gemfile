@@ -11,6 +11,8 @@ gem 'gmaps-rails'
 # use client side validation to validates form on front end side.
 gem 'client_side_validations'
 gem 'hirb'
+# for-image
+gem 'paperclip'
 # font-awesome
 gem "font-awesome-rails"
 gem 'jquery-rails'
