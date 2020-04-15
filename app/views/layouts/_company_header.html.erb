@@ -13,6 +13,9 @@
             </li>
             <li class="active has-sub">
               <%= link_to 'Jobs', company_opening_jobs_path(current_company) %> </li>
+            <li class="active has-sub">
+              <%= link_to 'Chat(admin)', new_message_path, remote: true, class: "fas fa-chart-bar" %>
+            </li>
           </ul>
         </nav>
       </div>
