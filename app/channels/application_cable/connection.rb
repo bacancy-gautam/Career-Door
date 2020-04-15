@@ -2,19 +2,19 @@
 
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-    identified_by :current_company
+    identified_by :current_user
 
     def connect
-      self.current_company = find_verified_user
+      self.current_user = env['warden'].user
     end
 
-    private
-      def find_verified_user
-        if current_company = User.find_by(id: cookies.signed[:user_id])
-          current_company
-        else
-          reject_unauthorized_connection
-        end
-      end
+    # private
+    # def find_verified_company
+    #   if current_company = env['warden'].user
+    #     current_company
+    #   else
+    #     reject_unauthorized_connection
+    #   end
+    # end
   end
 end

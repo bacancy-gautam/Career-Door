@@ -50,4 +50,7 @@ Rails.application.routes.draw do
     end
   end
   resources :resumes
+  resources :messages do
+    get 'new_message', on: :member
+  end
 end

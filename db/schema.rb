@@ -99,10 +99,12 @@ ActiveRecord::Schema.define(version: 2020_04_15_030018) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "company_id"
+    t.bigint "user_id"
     t.string "msg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_messages_on_company_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "opening_jobs", force: :cascade do |t|

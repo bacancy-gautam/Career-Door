@@ -10,15 +10,19 @@
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
               <a class="js-arrow" href="/super_admins">
-                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </i>Dashboard</a>
             </li>
             <li>
               <a class="js-arrow" href="/technologies">
-                <i class="fas fa-chart-bar"></i>Show Technologies</a>
+                </i>Show Technologies</a>
             </li>
             <li>
               <a class="js-arrow" href="/super_admins/charges/index">
-                <i class="fas fa-chart-bar"></i>Companies List(Aprvd.)</a>
+                </i>Companies List(Aprvd.)</a>
+            </li>
+            
+            <li>
+              <%= link_to 'Chat', messages_path, remote: true, class: "js-arrow"%>
             </li>
           </ul>
         </nav>

@@ -1,0 +1,6 @@
+<div id="company_messages_list">
+  <% @companies.each do |company| %>
+    <%= link_to company.name, new_message_message_path(company), remote: true %>
+  <% end %>
+</div>
+<div id="render_messages"></div>
