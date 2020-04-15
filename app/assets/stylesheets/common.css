@@ -67,3 +67,9 @@
   background: #ccc;
   border: 3px solid #000;
 }
+
+#person-form {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}

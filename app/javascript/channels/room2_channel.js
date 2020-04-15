@@ -37,8 +37,6 @@ consumer.subscriptions.create("Room2Channel", {
     var element = document.getElementById("scroll_div");
     $('#scroll_div').animate({scrollTop: (element.scrollHeight-element.clientHeight)},"fast");
 
-    
-  
     // Called when there's incoming data on the websocket for this channel
     // $('#chattings').html("<%= j render 'messages/message_list' %>");
     // $('#chattings_admin').html("<%= j render 'messages/admin_message_list' %>");
