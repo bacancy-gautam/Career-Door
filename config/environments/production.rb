@@ -44,7 +44,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   config.action_cable.url = 'wss://carrier-door.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://carrier-door.herokuapp.com', /http:\/\/http://carrier-door.herokuapp.com.*/ ]
+  config.action_cable.allowed_request_origins = [ 'http://carrier-door.herokuapp.com', /http:\/\/carrier-door.herokuapp.com.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
