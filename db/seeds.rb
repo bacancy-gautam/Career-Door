@@ -12,9 +12,9 @@ admin = User.new(
   lastname: 'door',
   username: 'siteadmin',
   email: 'urmit.prajapati@bacancytechnology.com',
-  contact: '+91-112 233 4455',
-  password: 'Admin@careerdoor',
-  password_confirmation: 'Admin@careerdoor'
+  contact: '+91-112 234 4450',
+  password: 'Admin@careerdoor1',
+  password_confirmation: 'Admin@careerdoor1'
 )
 admin.add_role :super_admin
 admin.save
