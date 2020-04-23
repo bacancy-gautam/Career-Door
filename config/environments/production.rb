@@ -42,7 +42,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
-  # config.action_cable.mount_path = nil
+  config.action_cable.mount_path = nil
   config.action_cable.url = 'wss://carrier-door.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = [ 'http://carrier-door.herokuapp.com', /http:\/\/carrier-door.herokuapp.com.*/ ]
 
