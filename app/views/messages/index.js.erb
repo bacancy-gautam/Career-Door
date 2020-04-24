@@ -1,0 +1,13 @@
+$("#person-form").dialog({
+  autoOpen: true,
+  height: 600,
+  width: 500,
+  modal: true,
+  title: 'Chat',
+  <%# buttons: {
+    "Edit": function() { $("#edit_person_2").submit() },
+  }, %>
+  open: function() {
+    $("#person-form").html("<%= j render 'index' %>")
+  },
+});

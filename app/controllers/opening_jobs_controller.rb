@@ -87,7 +87,10 @@ class OpeningJobsController < ApplicationController
 
   def open_close_post
     @job.update(open: !@job.open)
-    redirect_to company_opening_jobs_path, notice: "Done"
+    # respond_to do |format|
+    #   format.js
+    # end
+    # redirect_to company_opening_jobs_path, notice: "Done"
   end
 
   private

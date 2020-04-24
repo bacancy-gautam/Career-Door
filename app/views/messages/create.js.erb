@@ -1,0 +1,5 @@
+$('#message_msg').val("");
+$('#chattings').html("<%= j render 'message_list' %>");
+$('#chattings_admin').html("<%= j render 'admin_message_list' %>");
+var element = document.getElementById("scroll_div");
+$('#scroll_div').animate({scrollTop: (element.scrollHeight-element.clientHeight)},"fast");

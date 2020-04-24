@@ -1,11 +1,20 @@
 <% if @subscriptions.present? %>
   <% @subscriptions.each do |subscription| %>
     <tr>
-      <td title="Company details"><%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %></td>
+      <td title="Company details">
+        <%= image_tag subscription.company.avatar.url, 
+        class: "circleBase "+ (subscription.company.approved ? "type2g": "type2r") %>
+        &nbsp;<%= link_to subscription.company.name, company_path(subscription.company), style: "color:black;" %>
+      </td>
       <td title ="Subscribed? "><%= subscribed(subscription) %></td>
       <td title="Days to complete trial"><%= days_left(subscription) %></td>
       <td title ="Subscription date"><%= subscription&.subscription_date %></td>
-    </tr>
+      <% if subscription.company.approved %>
+        <td title ="Unapprove company"><%= link_to 'Unapprove', companies_unapprove_company_super_admin_path(subscription.company), class: "message btn btn-outline-danger btn-sm fa fa-thumbs-down", remote: true %></td>
+      <% else %>
+        <td title ="Approve company"><%= link_to 'Approve', companies_approve_company_super_admin_path(subscription.company), class: "btn btn-outline-success btn-sm fa fa-thumbs-up", remote: true %></td>
+      <% end %>
+    </tr> 
   <% end %>
 <% else %>
   <span class="alert">***Data not available</span>

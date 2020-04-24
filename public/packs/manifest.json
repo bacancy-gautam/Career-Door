@@ -1,23 +1,23 @@
 {
-  "application.js": "/packs/js/application-6606aa3bbb124da7ca76.js",
-  "application.js.map": "/packs/js/application-6606aa3bbb124da7ca76.js.map",
-  "bootstrap-datetimepicker.js": "/packs/js/bootstrap-datetimepicker-6fc39e5b4c77ec038963.js",
-  "bootstrap-datetimepicker.js.map": "/packs/js/bootstrap-datetimepicker-6fc39e5b4c77ec038963.js.map",
+  "application.js": "/packs/js/application-9bb3170fc45a3370ade3.js",
+  "application.js.map": "/packs/js/application-9bb3170fc45a3370ade3.js.map",
+  "custom.js": "/packs/js/custom-da2ee9d7a819421b8893.js",
+  "custom.js.map": "/packs/js/custom-da2ee9d7a819421b8893.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-6606aa3bbb124da7ca76.js"
+        "/packs/js/application-9bb3170fc45a3370ade3.js"
       ],
       "js.map": [
-        "/packs/js/application-6606aa3bbb124da7ca76.js.map"
+        "/packs/js/application-9bb3170fc45a3370ade3.js.map"
       ]
     },
-    "bootstrap-datetimepicker": {
+    "custom": {
       "js": [
-        "/packs/js/bootstrap-datetimepicker-6fc39e5b4c77ec038963.js"
+        "/packs/js/custom-da2ee9d7a819421b8893.js"
       ],
       "js.map": [
-        "/packs/js/bootstrap-datetimepicker-6fc39e5b4c77ec038963.js.map"
+        "/packs/js/custom-da2ee9d7a819421b8893.js.map"
       ]
     },
     "jquery": {
@@ -26,142 +26,6 @@
       ],
       "js.map": [
         "/packs/js/jquery-a855fc6cff58d33e4586.js.map"
-      ]
-    },
-    "main": {
-      "js": [
-        "/packs/js/main-7b513714af990ab4c31f.js"
-      ],
-      "js.map": [
-        "/packs/js/main-7b513714af990ab4c31f.js.map"
-      ]
-    },
-    "moment": {
-      "js": [
-        "/packs/js/moment-92f920afe465f0951178.js"
-      ],
-      "js.map": [
-        "/packs/js/moment-92f920afe465f0951178.js.map"
-      ]
-    },
-    "theme/animsition": {
-      "js": [
-        "/packs/js/theme/animsition-14809c996f6b8e44093c.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/animsition-14809c996f6b8e44093c.js.map"
-      ]
-    },
-    "theme/bootstrap-progressbar": {
-      "js": [
-        "/packs/js/theme/bootstrap-progressbar-918eb2f1e26be93ae36f.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/bootstrap-progressbar-918eb2f1e26be93ae36f.js.map"
-      ]
-    },
-    "theme/Chart": {
-      "js": [
-        "/packs/js/theme/Chart-4d5cb72ba3763a1de5d0.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/Chart-4d5cb72ba3763a1de5d0.js.map"
-      ]
-    },
-    "theme/circle-progress": {
-      "js": [
-        "/packs/js/theme/circle-progress-a24d0e2fd42727bf1197.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/circle-progress-a24d0e2fd42727bf1197.js.map"
-      ]
-    },
-    "theme/countdowntime": {
-      "js": [
-        "/packs/js/theme/countdowntime-54ab6482350af887016e.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/countdowntime-54ab6482350af887016e.js.map"
-      ]
-    },
-    "theme/jquery": {
-      "js": [
-        "/packs/js/theme/jquery-79b49990addfd644a8ba.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/jquery-79b49990addfd644a8ba.js.map"
-      ]
-    },
-    "theme/moment-timezone-with-data": {
-      "js": [
-        "/packs/js/theme/moment-timezone-with-data-71b9ecb5f60e8561e40f.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/moment-timezone-with-data-71b9ecb5f60e8561e40f.js.map"
-      ]
-    },
-    "theme/moment-timezone": {
-      "js": [
-        "/packs/js/theme/moment-timezone-ae118e44da18affb9a91.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/moment-timezone-ae118e44da18affb9a91.js.map"
-      ]
-    },
-    "theme/moment": {
-      "js": [
-        "/packs/js/theme/moment-4530cfc30ff974d64aba.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/moment-4530cfc30ff974d64aba.js.map"
-      ]
-    },
-    "theme/perfect-scrollbar": {
-      "js": [
-        "/packs/js/theme/perfect-scrollbar-be020a45a781ef045d7f.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/perfect-scrollbar-be020a45a781ef045d7f.js.map"
-      ]
-    },
-    "theme/progressbar": {
-      "js": [
-        "/packs/js/theme/progressbar-39b4e48bbbd5745a3ce3.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/progressbar-39b4e48bbbd5745a3ce3.js.map"
-      ]
-    },
-    "theme/select2": {
-      "js": [
-        "/packs/js/theme/select2-67d6a23b1ad0d2bfd853.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/select2-67d6a23b1ad0d2bfd853.js.map"
-      ]
-    },
-    "theme/slick": {
-      "js": [
-        "/packs/js/theme/slick-61287e57fa625cf389e8.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/slick-61287e57fa625cf389e8.js.map"
-      ]
-    },
-    "theme/waypoints": {
-      "js": [
-        "/packs/js/theme/waypoints-a948c1226d0442d37a93.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/waypoints-a948c1226d0442d37a93.js.map"
-      ]
-    },
-    "theme/wow": {
-      "js": [
-        "/packs/js/theme/wow-772389c9549e1ad79074.js"
-      ],
-      "js.map": [
-        "/packs/js/theme/wow-772389c9549e1ad79074.js.map"
       ]
     },
     "user_index_page": {
@@ -175,40 +39,6 @@
   },
   "jquery.js": "/packs/js/jquery-a855fc6cff58d33e4586.js",
   "jquery.js.map": "/packs/js/jquery-a855fc6cff58d33e4586.js.map",
-  "main.js": "/packs/js/main-7b513714af990ab4c31f.js",
-  "main.js.map": "/packs/js/main-7b513714af990ab4c31f.js.map",
-  "moment.js": "/packs/js/moment-92f920afe465f0951178.js",
-  "moment.js.map": "/packs/js/moment-92f920afe465f0951178.js.map",
-  "theme/Chart.js": "/packs/js/theme/Chart-4d5cb72ba3763a1de5d0.js",
-  "theme/Chart.js.map": "/packs/js/theme/Chart-4d5cb72ba3763a1de5d0.js.map",
-  "theme/animsition.js": "/packs/js/theme/animsition-14809c996f6b8e44093c.js",
-  "theme/animsition.js.map": "/packs/js/theme/animsition-14809c996f6b8e44093c.js.map",
-  "theme/bootstrap-progressbar.js": "/packs/js/theme/bootstrap-progressbar-918eb2f1e26be93ae36f.js",
-  "theme/bootstrap-progressbar.js.map": "/packs/js/theme/bootstrap-progressbar-918eb2f1e26be93ae36f.js.map",
-  "theme/circle-progress.js": "/packs/js/theme/circle-progress-a24d0e2fd42727bf1197.js",
-  "theme/circle-progress.js.map": "/packs/js/theme/circle-progress-a24d0e2fd42727bf1197.js.map",
-  "theme/countdowntime.js": "/packs/js/theme/countdowntime-54ab6482350af887016e.js",
-  "theme/countdowntime.js.map": "/packs/js/theme/countdowntime-54ab6482350af887016e.js.map",
-  "theme/jquery.js": "/packs/js/theme/jquery-79b49990addfd644a8ba.js",
-  "theme/jquery.js.map": "/packs/js/theme/jquery-79b49990addfd644a8ba.js.map",
-  "theme/moment-timezone-with-data.js": "/packs/js/theme/moment-timezone-with-data-71b9ecb5f60e8561e40f.js",
-  "theme/moment-timezone-with-data.js.map": "/packs/js/theme/moment-timezone-with-data-71b9ecb5f60e8561e40f.js.map",
-  "theme/moment-timezone.js": "/packs/js/theme/moment-timezone-ae118e44da18affb9a91.js",
-  "theme/moment-timezone.js.map": "/packs/js/theme/moment-timezone-ae118e44da18affb9a91.js.map",
-  "theme/moment.js": "/packs/js/theme/moment-4530cfc30ff974d64aba.js",
-  "theme/moment.js.map": "/packs/js/theme/moment-4530cfc30ff974d64aba.js.map",
-  "theme/perfect-scrollbar.js": "/packs/js/theme/perfect-scrollbar-be020a45a781ef045d7f.js",
-  "theme/perfect-scrollbar.js.map": "/packs/js/theme/perfect-scrollbar-be020a45a781ef045d7f.js.map",
-  "theme/progressbar.js": "/packs/js/theme/progressbar-39b4e48bbbd5745a3ce3.js",
-  "theme/progressbar.js.map": "/packs/js/theme/progressbar-39b4e48bbbd5745a3ce3.js.map",
-  "theme/select2.js": "/packs/js/theme/select2-67d6a23b1ad0d2bfd853.js",
-  "theme/select2.js.map": "/packs/js/theme/select2-67d6a23b1ad0d2bfd853.js.map",
-  "theme/slick.js": "/packs/js/theme/slick-61287e57fa625cf389e8.js",
-  "theme/slick.js.map": "/packs/js/theme/slick-61287e57fa625cf389e8.js.map",
-  "theme/waypoints.js": "/packs/js/theme/waypoints-a948c1226d0442d37a93.js",
-  "theme/waypoints.js.map": "/packs/js/theme/waypoints-a948c1226d0442d37a93.js.map",
-  "theme/wow.js": "/packs/js/theme/wow-772389c9549e1ad79074.js",
-  "theme/wow.js.map": "/packs/js/theme/wow-772389c9549e1ad79074.js.map",
   "user_index_page.js": "/packs/js/user_index_page-25b5d317526d7d191fa4.js",
   "user_index_page.js.map": "/packs/js/user_index_page-25b5d317526d7d191fa4.js.map"
 }

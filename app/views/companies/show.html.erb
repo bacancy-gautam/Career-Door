@@ -1,12 +1,13 @@
+<%# <head><link href="../styles.css" rel="stylesheet"><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1SdavLRmW3eZJqlOGHl9LLjPTrqLIz4"></script><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js"></script></head> %>
+ 
 <div class="main-content">
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-4">
-              <br>
-              <br>
+            <div class="col-md-6">
+              <br><br>
               <div class="star-rating" data-score=<%= @avg_review %>></div>
               <em><%= "#{@company_reviews.length} reviews" %></em>
               <div class="table-responsive">
@@ -44,9 +45,12 @@
                 </table>
                 <%= link_to "Write a Review", new_company_company_review_path(@company), remote: true, id: "write_review" %>
               </div>
+              <div id="map"></div>
             </div>
-            <div class="col-md-5 col-md-offset-2">
-              <h1 class="review_title"><%= @company.name %></h1>
+            <div class="col-md-2"></div>
+            <div class="col-md-4 col-md-offset-2">
+            
+              <h1 class="review_title"><%= image_tag @company.avatar.url, class: "circleBase type3" %>&nbsp;<%= @company.name %></h1>
               <p><%= @company.description %></p>
               <div id="new_review"></div>
               <% if @company_reviews.blank? %>
@@ -60,7 +64,6 @@
                   </div>
                 <% end %>
               <% end %>
-
             </div>
           </div>
         </div>
@@ -77,4 +80,30 @@
       return $(this).attr('data-score');
     }
   });
+</script>
+
+<script>
+  // Initialize and add the map
+  function initMap() {
+    // The location of Uluru
+    var uluru = {
+      lat: <%= @latlong[0]%>,
+      lng: <%= @latlong[1]%>
+    };
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+      document.getElementById('map'), {
+        zoom: 4,
+        center: uluru
+      });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1SdavLRmW3eZJqlOGHl9LLjPTrqLIz4&callback=initMap">
 </script>

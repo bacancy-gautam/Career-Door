@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  default_url_options host: "https://career-doorr.herokuapp.com"
+  resources :cities, only: :index
+  resources :states, only: :index
+  default_url_options host: 'https://career-doorr.herokuapp.com'
   root to: 'home#index'
 
   devise_for :companies, controllers: {
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :companies, only: %i[index show] do
+    get 'chat', on: :member
     resources :charges, on: :member
     resources :company_reviews
     resources :opening_jobs do
@@ -43,7 +46,11 @@ Rails.application.routes.draw do
     member do
       get 'companies/approve_company'
       get 'companies/reject_company'
+      get 'companies/unapprove_company'
     end
   end
   resources :resumes
+  resources :messages do
+    get 'new_message', on: :member
+  end
 end

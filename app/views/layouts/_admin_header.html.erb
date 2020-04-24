@@ -2,27 +2,27 @@
   <div class="page-wrapper">
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
-        <h4>Admin Dashboard</h4>
+      <div class="logo fa fa-user-circle fa-2x">
+        <h4> Admin Dashboard</h4>
       </div>
       <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
-              <a class="js-arrow" href="/super_admins">
-                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+              <i><a class="js-arrow fa fa-home" href="/super_admins">
+                Dashboard</a></i>
             </li>
-            <li>
-              <a class="js-arrow" href="/technologies">
-                <i class="fas fa-chart-bar"></i>Show Technologies</a>
+            <li class="active has-sub">
+              <i><a class="js-arrow fa fa-html5" href="/technologies">
+                Technologies</a></i>
             </li>
-            <li>
-              <a class="js-arrow" href="/technologies/new">
-                <i class="fas fa-chart-bar"></i>AddNew technology</a>
+            <li class="active has-sub">
+              <i><a class="js-arrow fa fa-list" href="/super_admins/charges/index">
+                Companies List(Aprvd.)</a></i>
             </li>
-            <li>
-              <a class="js-arrow" href="/super_admins/charges/index">
-                <i class="fas fa-chart-bar"></i>Companies List(Aprvd.)</a>
+            
+            <li class="active has-sub">
+              <i><%= link_to ' Chat', messages_path, remote: true, class: "js-arrow fa fa-weixin" %></i>
             </li>
           </ul>
         </nav>
@@ -48,8 +48,8 @@
 
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
-                    <%= link_to current_user.email, edit_user_registration_path %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+                    <%= link_to "Admin", edit_user_registration_path %>
+                    <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: 'Want to Logout?'}, class:"btn btn-outline-danger fa fa-power-off" %>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">

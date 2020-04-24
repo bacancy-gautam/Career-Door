@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-
   before_action :authenticate_company!, only: %i[index interested_people]
-  before_action :find_company, only: %i[approve_company reject_company show]
+  before_action :find_company, only: %i[approve_company reject_company show 
+                                        unapprove_company]
 
   def index
     @companies = Company.all
@@ -21,12 +21,34 @@ class CompaniesController < ApplicationController
                   else
                     @company_reviews.average(:review_rating).round(2)
                   end
+                  
+    @latlong = Geocoder.search("#{@company.city},
+                                #{CS.states(@company.country.to_sym)[@company.state.to_sym]},
+                                #{CS.countries[@company.country.to_sym]}").first.coordinates
+    # @longitude = Geocoder.search("#{@company.city}, #{@company.state},
+    #                              #{@company.country}").first.coordinates[1]
+    # @map = GMaps.new(div: '#map', lat: -12.043333, lng: -77.028333)
+    # binding.pry
+  end
+
+  def unapprove_company
+    @company.update(approved: false)
+    @subscriptions = Subscription.all
+      # redirect_to super_admins_path, notice: 'Unapproved!'
   end
 
   def approve_company
     if @company.update(approved: true)
-      subscription = @company.build_subscription
-      redirect_to super_admins_path, notice: 'Approved!' if subscription.save!
+      if @company.subscription.blank?
+        subscription = @company.build_subscription 
+        flash[:notice] = 'Approved!' if subscription.save!
+      else
+        @subscriptions = Subscription.all
+      end
+      respond_to do |format|
+        format.js
+        format.html {redirect_to super_admins_path}
+      end
     end
   end
 

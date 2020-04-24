@@ -5,10 +5,10 @@
       <td title ="Technology"><%= job.technology.technology_name %></td>
       <td title ="Experience"><%= job.experience %></td>
       <td title ="CGPA"><%= job.cgpa %></td>
-      <td><%= link_to "Edit",  edit_company_opening_job_path(current_company,job), class: "genric-btn info-border radius medium fa fa-pencil-square-o", title: "Edit post" %></td>
-      <td><%= link_to "Delete", company_opening_job_path(current_company,job), method: :delete, data: { confirm: "Are you sure?" }, class: "genric-btn danger-border radius medium fa fa-trash", title: "Delete Job post" %></td>
-      <td><%= link_to "Interested People",  interested_people_company_opening_job_path(current_company,job), class: "genric-btn info-border radius medium fa fa-pencil-square-o", title: "Interested People" %></td>
-      <td><%= link_to opened(job),  open_close_post_company_opening_job_path(current_company,job), class: "genric-btn info-border radius medium fa fa-pencil-square-o", title: "Open/Close" %></td>
+      <td><%= link_to "",  edit_company_opening_job_path(current_company,job), class: "btn btn-outline-primary btn-sm fa fa-pencil-square-o", title: "Edit post" %></td>
+      <td><%= link_to "", company_opening_job_path(current_company,job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm fa fa-trash", title: "Delete Job post" %></td>
+      <td><%= link_to "Interested",  interested_people_company_opening_job_path(current_company,job), class: "btn btn-outline-success fa fa-users btn-sm", title: "Interested People" %></td>
+      <td><%= link_to opened(job),  open_close_post_company_opening_job_path(current_company,job), class: "btn btn-outline-primary fa btn-sm", title: "Open/Close", remote: true, id: "open_close" %></td>
     </tr>
   <% end %>
 <% else %>

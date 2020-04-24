@@ -25,8 +25,11 @@
           <% end %>
         </div>
         <div class="pt8pct">
-          <div class="col-lg-6">
-            Hello <%= current_company.name %><br />
+          <div class="col-lg-12">
+            <center>
+              <%= image_tag current_company.avatar.url, class: "circleBase type2" %>
+              &nbsp;<h2>Welcome <%= current_company.name %></h2><br />
+            </center>
           </div>
         </div>
         <% else %>
