@@ -2,7 +2,7 @@
   <div class="page-wrapper">
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
+      <div class="logo fa fa-user-o fa-2x">
         <h4>User Dashboard</h4>
       </div>
       <div class="menu-sidebar__content js-scrollbar1">
@@ -40,7 +40,7 @@
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
                     <%= link_to current_user.email, edit_user_registration_path %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "btn btn-outline-danger"%>
+                    <%= link_to "", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger fa fa-power-off"%>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">

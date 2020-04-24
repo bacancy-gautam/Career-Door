@@ -2,19 +2,19 @@
   <div class="page-wrapper">
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
+      <div class="logo fa fa-ravelry fa-2x">
         <h4>Company Dashboard</h4>
       </div>
       <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
-              <%= link_to "Dashboard", companies_path, class: "fas fa-chart-bar" %>
+              <i><%= link_to " Dashboard", companies_path, class: "fa fa-home" %></i>
             </li>
             <li class="active has-sub">
-              <%= link_to 'Jobs', company_opening_jobs_path(current_company) %> </li>
+              <i><%= link_to ' Jobs', company_opening_jobs_path(current_company), class: "fa fa-th-list" %></i> </li>
             <li class="active has-sub">
-              <%= link_to 'Chat(admin)', new_message_path, remote: true, class: "fas fa-chart-bar" %>
+              <i><%= link_to ' Chat(admin)', new_message_path, remote: true, class: "js-arrow fa fa-weixin" %></i>
             </li>
           </ul>
         </nav>
@@ -34,8 +34,8 @@
               <div class="header-button">
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
-                    <%= link_to current_company.email, edit_company_registration_path %>
-                    <%= link_to "Logout", destroy_company_session_path, method: :delete,class: "btn btn-outline-danger"%>
+                    <%= link_to current_company.name, edit_company_registration_path %>
+                    <%= link_to "", destroy_company_session_path, method: :delete, class: "btn btn-outline-danger fa fa-power-off"%>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">

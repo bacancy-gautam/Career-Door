@@ -1,10 +1,10 @@
 <% @all_technologies.each do |technology| %>
   <tr>
     <td><%= technology.technology_name %></td>
-    <td><%= link_to "edit", edit_technology_path(technology.id) %></td>
-    <td><%= link_to "show", technology_path(technology.id) %></td>
-    <td>
-      <%= link_to "delete", technology_path(technology.id), confirm: "are you sure?", data: { method: :delete }, remote: true %>
+    <td title="Edit"><%= link_to "Edit", edit_technology_path(technology.id), class: "btn btn-outline-primary fa fa-pencil-square-o" %></td>
+    <td title="Show"><%= link_to "Show", technology_path(technology.id), class: "btn btn-outline-success fa fa-info-circle" %></td>
+    <td title="Remove">
+      <%= link_to "Remove", technology_path(technology.id), confirm: "are you sure?", data: { method: :delete }, remote: true, class: "btn btn-outline-danger fa fa-times-circle" %>
     </td>
   </tr>
 <% end %>
