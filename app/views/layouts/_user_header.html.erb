@@ -40,7 +40,7 @@
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
                     <%= link_to current_user.email, edit_user_registration_path %>
-                    <%= link_to "", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger fa fa-power-off"%>
+                    <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: 'Want to Logout?'}, class: "btn btn-outline-danger fa fa-power-off"%>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">

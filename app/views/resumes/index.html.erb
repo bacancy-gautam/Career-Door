@@ -29,7 +29,7 @@
                       <td><%= link_to '', url_for(user_resume.file), class: "btn btn-outline-success fa fa-download" %></td>
                       <td><%= link_to "", edit_resume_path(user_resume.id), class: "btn btn-outline-primary fa fa-pencil-square-o" %></td>
                       <td>
-                        <%= link_to '', resume_path(user_resume.id), confirm: 'are you sure to delete this resume?', method: :delete, remote: true, class: "btn btn-outline-danger fa fa-trash" %>
+                        <%= link_to '', resume_path(user_resume.id), data: { confirm: 'are you sure to delete this resume?' }, method: :delete, remote: true, class: "btn btn-outline-danger fa fa-trash" %>
                       </td>
                     </tr>
                     <% end %>
