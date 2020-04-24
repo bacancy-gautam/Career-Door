@@ -1,18 +1,34 @@
-.message { color: red; }
+.message {
+  color: red;
+}
 
-.text-align-ceneter{ text-align: center; }
+.text-align-ceneter {
+  text-align: center;
+}
 
-.bgc_red{ background-color: red; }
+.bgc_red {
+  background-color: red;
+}
 
-.fw_bold{ font-weight: bold; }
+.fw_bold {
+  font-weight: bold;
+}
 
-.fc_white{ color: white; }
+.fc_white {
+  color: white;
+}
 
-.fc_yellow{ color: yellow; }
+.fc_yellow {
+  color: yellow;
+}
 
-.pt10pct{ padding-top: 10%; }
+.pt10pct {
+  padding-top: 10%;
+}
 
-.pt8pct{ padding-top: 8%; }
+.pt8pct {
+  padding-top: 8%;
+}
 
 .alert {
   color: red;
@@ -72,4 +88,9 @@
   margin: 0;
   height: 100%;
   overflow: hidden
+}
+
+#map {
+  height: 400px;
+  width: 100%;
 }

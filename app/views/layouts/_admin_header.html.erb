@@ -9,20 +9,20 @@
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
-              <a class="js-arrow" href="/super_admins">
-                </i>Dashboard</a>
+              <i><a class="js-arrow fa fa-home" href="/super_admins">
+                Dashboard</a></i>
             </li>
-            <li>
-              <a class="js-arrow" href="/technologies">
-                </i>Show Technologies</a>
+            <li class="active has-sub">
+              <i><a class="js-arrow fa fa-html5" href="/technologies">
+                Technologies</a></i>
             </li>
-            <li>
-              <a class="js-arrow" href="/super_admins/charges/index">
-                </i>Companies List(Aprvd.)</a>
+            <li class="active has-sub">
+              <i><a class="js-arrow fa fa-list" href="/super_admins/charges/index">
+                Companies List(Aprvd.)</a></i>
             </li>
             
-            <li>
-              <%= link_to 'Chat', messages_path, remote: true, class: "js-arrow"%>
+            <li class="active has-sub">
+              <i><%= link_to ' Chat', messages_path, remote: true, class: "js-arrow fa fa-weixin"%></i>
             </li>
           </ul>
         </nav>
