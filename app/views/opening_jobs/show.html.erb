@@ -16,12 +16,12 @@
                   <h4>Job Experience(years):</h4> <%= @job.experience %><br />=========================<br />
                   <h4>CGPA:</h4> <%= @job.cgpa %><br /><br />
                   <% if interested?(@job) %>
-                    <%= link_to 'Interested', interested_user_opening_job_path %>
+                    <%= link_to 'Interested', interested_user_opening_job_path, class: "btn btn-warning" %>
                   <% end %>
                   <% if !applied?(@job) %>
-                    <%= link_to 'Apply', apply_user_opening_job_path, class: "btn btn-success btn-lg" %>
+                    <%= link_to 'Apply', apply_user_opening_job_path, class: "btn btn-success btn-sn" %>
                   <% else %>
-                    <%= link_to 'Un-apply', apply_user_opening_job_path, class: "btn btn-danger btn-lg" %>
+                    <%= link_to 'Un-apply', apply_user_opening_job_path, class: "btn btn-danger btn-sm" %>
                   <% end %>
                 </div>
               </div>
