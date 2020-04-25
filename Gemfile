@@ -5,7 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'redis'
 gem 'devise'
 gem 'gmaps-rails'
 # use client side validation to validates form on front end side.

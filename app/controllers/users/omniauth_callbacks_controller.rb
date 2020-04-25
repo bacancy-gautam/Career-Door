@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication 
-      flash[:notice] = 'Please fillup other fields by clicking your email on top right' 
+      flash[:notice] = 'please fillup other field by editing your profile' if is_navigational_format?
     else
       flash.alert = 'There was a problem signing you in through Google.Please register or try signin later.'
       redirect_to new_user_registration_url
@@ -22,7 +22,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
+<<<<<<< HEAD
       flash[:notice] = 'Please fillup other fields by clicking your email on top right' if is_navigational_format?
+=======
+      flash[:notice] = 'please fillup other field by editing your profile' if is_navigational_format?
+>>>>>>> 9263ae6d14e2c34e0d7d22b23bbc703114847b76
     else
       flash.alert = 'There was a problem signing you in through github.Please register or try signin later.'
       redirect_to new_user_registration_url
