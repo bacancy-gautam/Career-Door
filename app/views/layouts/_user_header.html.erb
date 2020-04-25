@@ -2,26 +2,23 @@
   <div class="page-wrapper">
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
+      <div class="logo fa fa-user-o fa-2x">
         <h4>User Dashboard</h4>
       </div>
       <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
             <li class="active has-sub">
-              <%= link_to "Dashboard", root_path, class: "fas fa-chart-bar" %>
+              <i><%= link_to " Dashboard", root_path, class: "fa fa-home " %></i>
             </li>
             <li class="active has-sub">
-                <%= link_to 'add resume', new_resume_path %>
+              <i><%= link_to ' My resumes', resumes_path, class: "fa fa-file-o" %></i>
             </li>
             <li class="active has-sub">
-                <%= link_to 'My resumes', resumes_path %>
+              <i><%= link_to " Available Jobs", jobs_list_user_opening_jobs_path(current_user), class: "fa fa-users" %></i>
             </li>
             <li class="active has-sub">
-                <%= link_to "Available Jobs", jobs_list_user_opening_jobs_path(current_user)%>
-            </li>
-            <li class="active has-sub">
-                <%= link_to "Interested/Applied Jobs", home_applied_job_list_user_path(current_user)%>
+              <i><%= link_to " Interested/Applied Jobs", home_applied_job_list_user_path(current_user), class: "fa fa-hand-pointer-o" %></i>
             </li>
           </ul>
         </nav>
@@ -43,7 +40,7 @@
                 <div class="account-wrap">
                   <div class="account-item clearfix js-item-menu">
                     <%= link_to current_user.email, edit_user_registration_path %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "btn btn-outline-danger"%>
+                    <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: 'Want to Logout?'}, class: "btn btn-outline-danger fa fa-power-off"%>
                     <div class="account-dropdown js-dropdown">
                       <div class="info clearfix">
                         <div class="image">

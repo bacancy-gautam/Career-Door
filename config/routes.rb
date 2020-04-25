@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :cities, only: :index
+  resources :states, only: :index
+  default_url_options host: 'https://career-doorr.herokuapp.com'
   root to: 'home#index'
 
   devise_for :companies, controllers: {
@@ -30,6 +33,7 @@ Rails.application.routes.draw do
 
   
   resources :companies, only: %i[index show] do
+    get 'chat', on: :member
     resources :charges, on: :member
     resources :company_reviews
     resources :opening_jobs do
@@ -46,8 +50,12 @@ Rails.application.routes.draw do
     member do
       get 'companies/approve_company'
       get 'companies/reject_company'
+      get 'companies/unapprove_company'
     end
   end
   resources :resumes
   get '/applied_jobs/:job_id', to: 'applied_jobs#show', as:'applied_candidates'
+  resources :messages do
+    get 'new_message', on: :member
+  end
 end

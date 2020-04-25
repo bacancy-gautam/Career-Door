@@ -12,7 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
  @import "bootstrap";
  @import "css/*";
- 
+ @import "font-awesome";

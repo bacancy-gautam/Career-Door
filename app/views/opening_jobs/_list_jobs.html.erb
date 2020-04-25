@@ -1,13 +1,13 @@
-<% # <% binding.pry %>
 <% if @jobs.present? %>
   <% @jobs.each do |job| %>
     <tr>
-      <td title ="Comapany details"><%= link_to job.company.name, company_path(job.company) %></td>
+      <td title ="Comapany details"><%= image_tag job.company.avatar.url, class: "circleBase type2" %>
+      &nbsp;<%= link_to job.company.name, company_path(job.company) %></td>
       <td title ="Job Role"><%= job.job_role %></td>
       <td title ="Technology"><%= job.technologies %></td>
       <td title ="Experience"><%= job.experience %></td>
       <td title ="CGPA"><%= job.cgpa %></td>
-      <td><%= link_to "Open", user_opening_job_path(current_user, job) %></td>
+      <td><%= link_to "Open", user_opening_job_path(current_user, job), class: "btn btn-outline-success btn-sm" %></td>
       <td><%= "yes" if applied?(job) %></td>
     </tr>
   <% end %>

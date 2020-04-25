@@ -2,6 +2,10 @@
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="col-lg-12">
+        <div id="render_form"></div>
+        <div id="new_tech_link">
+          <%= link_to "Add new technology", new_technology_path, remote: true, class: "btn btn-success fa fa-plus-circle" %>
+        </div>
         <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
           <div class="au-card-inner">
             <div class="table-responsive">
@@ -11,17 +15,8 @@
                     <th>Technology Name</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <% @all_technologies.each do |technology| %>
-                    <tr>
-                      <td><%= technology.technology_name %></td>
-                      <td><%= link_to "edit", edit_technology_path(technology.id) %></td>
-                      <td><%= link_to "show", technology_path(technology.id) %></td>
-                      <td>
-                        <%= link_to "delete", technology_path(technology.id), :confirm => "are you sure?", data: { method: :delete } %>
-                      </td>
-                    </tr>
-                  <% end %>
+                <tbody id="technology_tbody" >
+                  <%= render "technologies_list" %>
                 </tbody>
               </table>
             </div>

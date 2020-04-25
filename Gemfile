@@ -7,10 +7,20 @@ ruby '2.6.3'
 
 gem 'redis'
 gem 'devise'
+gem 'gmaps-rails'
 # use client side validation to validates form on front end side.
 gem 'client_side_validations'
 gem 'hirb'
+# for-image
+gem 'paperclip'
+# font-awesome
+gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+# City-state gem
+gem 'city-state'
+# geocoder
+gem 'geocoder'
 # sign in with google and github
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

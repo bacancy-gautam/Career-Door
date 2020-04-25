@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_112340) do
+ActiveRecord::Schema.define(version: 2020_04_15_030018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_112340) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.boolean "approved", default: false
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.bigint "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
@@ -109,6 +116,16 @@ ActiveRecord::Schema.define(version: 2020_04_13_112340) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["opening_job_id"], name: "index_interested_people_on_opening_job_id"
     t.index ["user_id"], name: "index_interested_people_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.string "msg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_messages_on_company_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "opening_jobs", force: :cascade do |t|

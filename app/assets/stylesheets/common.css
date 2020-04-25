@@ -1,20 +1,37 @@
-.message { color: red; }
+.message {
+  color: red;
+}
 
-.text-align-ceneter{ text-align: center; }
+.text-align-ceneter {
+  text-align: center;
+}
 
-.bgc_red{ background-color: red; }
+.bgc_red {
+  background-color: red;
+}
 
-.fw_bold{ font-weight: bold; }
+.fw_bold {
+  font-weight: bold;
+}
 
-.fc_white{ color: white; }
+.fc_white {
+  color: white;
+}
 
-.fc_yellow{ color: yellow; }
+.fc_yellow {
+  color: yellow;
+}
 
 .container-padding{ padding-top: 10%;}
 .row-padding{ padding-top: 10%;}
 .pt10pct{ padding-top: 10%; }
+.pt10pct {
+  padding-top: 10%;
+}
 
-.pt8pct{ padding-top: 8%; }
+.pt8pct {
+  padding-top: 8%;
+}
 
 .alert {
   color: red;
@@ -31,3 +48,62 @@
   border-bottom: 1px solid #EAEAEA; }
 .background-color-green{ background-color: green; }
 .background-color-green{ background-color: red; }
+
+.row {
+  position: relative;
+}
+
+.bottom-align-text {
+  position: absolute;
+  bottom: 20px;
+}
+
+.circleBase {
+  border-radius: 50%;
+}
+
+.type1 {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  border: 3px solid red;
+}
+
+.type2 {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border: 3px solid #000;
+}
+
+.type2r {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border: 3px solid red;
+}
+
+.type2g {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border: 3px solid #7CFC00;
+}
+
+.type3 {
+  width: 70px;
+  height: 70px;
+  background: #ccc;
+  border: 3px solid #000;
+}
+
+#person-form {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}

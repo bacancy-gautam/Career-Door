@@ -47,17 +47,9 @@ class OpeningJobsController < ApplicationController
 
   def apply
     if current_user.opening_jobs.where(id: params[:id]).blank?
-      job = InterestedPerson.new(user_id: current_user.id,
-                                 opening_job_id: params[:id],
-                                 applied: true)
-      if job.save!
-        redirect_to jobs_list_user_opening_jobs_path, notice: 'Applied!'
-      else
-        flash[:alert] = 'Something went wrong'
-        render 'new'
-      end
-    else
+
       job = current_user.interested_people.find_by(opening_job_id: params[:id])
+      binding.pry
       if job.applied?
         job.update(user_id: current_user.id,
                    opening_job_id: params[:id],
@@ -68,6 +60,17 @@ class OpeningJobsController < ApplicationController
                    applied: true)
       end
       redirect_to jobs_list_user_opening_jobs_path, notice: 'Done!'
+    else
+
+      job = InterestedPerson.new(user_id: current_user.id,
+                                 opening_job_id: params[:id],
+                                 applied: true)
+      if job.save!
+        redirect_to jobs_list_user_opening_jobs_path, notice: 'Applied!'
+      else
+        flash[:alert] = 'Something went wrong'
+        render 'new'
+      end
     end
   end
 
@@ -89,6 +92,10 @@ class OpeningJobsController < ApplicationController
   def open_close_post
     @job.update(open: !@job.open)
     redirect_to company_opening_jobs_path, notice: 'Done'
+    # respond_to do |format|
+    #   format.js
+    # end
+    # redirect_to company_opening_jobs_path, notice: "Done"
   end
 
   private

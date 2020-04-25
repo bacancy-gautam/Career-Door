@@ -20,6 +20,10 @@ class Company < ApplicationRecord
          :confirmable
   has_one :subscription, dependent: :destroy
   has_many :company_reviews, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   after_create :assign_default_role
 

@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :company_reviews, dependent: :destroy
   has_many :applied_jobs , dependent: :destroy
   has_many :opening_jobs, through: :applied_jobs
+  has_many :messages, dependent: :destroy
   after_create :assign_default_role
 
   def assign_default_role

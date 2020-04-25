@@ -12,7 +12,17 @@ require("@rails/activestorage").start()
 require("channels")
 require("packs/user_index_page.js")
 require("packs/jquery.raty")
-require("packs/main.js")
+// require("packs/map")
+// require("packs/gmap")
+// require("https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1SdavLRmW3eZJqlOGHl9LLjPTrqLIz4")
+// require("https://code.jquery.com/jquery-2.1.4.min.js")
+// require("https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js")
+require("packs/custom")
+require('jquery-ui');
+
+// require ("gmaps")
+// require ("gmaps_ujs")
+
 // require("packs/moment.js")
 // require("packs/theme/*")
 // require("packs/main.js")
