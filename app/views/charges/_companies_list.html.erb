@@ -10,18 +10,9 @@
       <td title ="Subscribed? "><%= subscribed(subscription) %></td>
       <td title="Days to complete trial"><%= days_left(subscription) %></td>
       <td title ="Subscription date"><%= subscription&.subscription_date %></td>
-<<<<<<< HEAD
-      <td title ="Un Approve"><%= link_to 'Un Approve', companies_approve_company_super_admin_path(subscription.company) %></td>
+      <td title ="Un Approve"><%= link_to 'Un Approve', companies_approve_company_super_admin_path(subscription.company), class: "message btn btn-outline-danger btn-sm fa fa-thumbs-down", remote: true %></td>
     </tr>
     <% end %>
-=======
-      <% if subscription.company.approved %>
-        <td title ="Unapprove company"><%= link_to 'Unapprove', companies_unapprove_company_super_admin_path(subscription.company), class: "message btn btn-outline-danger btn-sm fa fa-thumbs-down", remote: true %></td>
-      <% else %>
-        <td title ="Approve company"><%= link_to 'Approve', companies_approve_company_super_admin_path(subscription.company), class: "btn btn-outline-success btn-sm fa fa-thumbs-up", remote: true %></td>
-      <% end %>
-    </tr> 
->>>>>>> 49b597ccc09f51a9f2db1dda96d79316f5a67b9f
   <% end %>
 <% else %>
   <span class="alert">***Data not available</span>
