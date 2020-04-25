@@ -1,30 +1,4 @@
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@bacancy-urmit
-bacancy-gautam /
-Career-Door
-
-1
-0
-
-    0
-
-Code
-Issues 0
-Pull requests 2
-Actions
-Projects 0
-Wiki
-Security 0
-Insights
-Career-Door/app/javascript/packs/main.js /
-@VatsalMewada VatsalMewada Theme integrated and some other changes 2dbf746 23 days ago
-executable file 1670 lines (1507 sloc) 40.3 KB
-
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1694,18 +1668,3 @@ executable file 1670 lines (1507 sloc) 40.3 KB
   }
 
 })(jQuery);
-
-    © 2020 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
