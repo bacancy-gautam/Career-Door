@@ -30,7 +30,7 @@ module CompaniesHelper
   end
 
   def remaining_days(company)
-    if company.approved == true
+    if current_company and company.approved == true
       if company.subscription.un_subscribe_date.nil?
         begin  
           diff = Time.now.utc - current_company.subscription.created_at
